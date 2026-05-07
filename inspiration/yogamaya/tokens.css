@@ -1,0 +1,101 @@
+/* Yogamaya (Inspiration Reference) — Design tokens (CSS custom properties)
+ * Generated from tokens.json by .claude/tools/design-system-extract/
+ * Captured: 2026-05-07
+ *
+ * Drop-in for new artefacts (HTML decks, internal tools, email templates,
+ * future landings). Pair with assets/fonts/*.woff2 or load fonts from
+ * Google Fonts as defined in design-system.md §2.3.
+ */
+
+:root {
+  /* ---------- Raw palette ---------- */
+  --forest-900: #0B2A2B;  /* Primary text + button bg + brand ink — load-bearing */
+  --cream-50: #EBDBC2;  /* Page background — load-bearing brand surface */
+  --cream-100: #F1E6D5;  /* Warmer cream — used as text on dark CTA, subtle highlights */
+  --ink-900: #0B2A2B;  /* Alias of forest-900 in foreground role */
+
+  /* ---------- Alpha ---------- */
+  --hairline: rgba(11, 42, 43, 0.10);
+  --hairline-strong: rgba(11, 42, 43, 0.18);
+
+  /* ---------- Semantic ---------- */
+  --background: #EBDBC2;
+  --foreground: #0B2A2B;
+  --primary: #0B2A2B;
+  --primary-foreground: #F1E6D5;
+  --border: rgba(11, 42, 43, 0.10);
+
+  /* ---------- Typography — families ---------- */
+  --font-display-stack: 'Dahlia-med', 'Libre Bodoni', Cambria, 'Times New Roman', Times, serif;  /* Custom hosted display serif — yogamaya signature */
+  --font-body-stack: Montserrat, Helvetica, Arial, sans-serif;
+  --font-italic-stack: 'Libre Bodoni', 'Times New Roman', serif;  /* Italic accent */
+
+  /* ---------- Typography — sizes ---------- */
+  --fs-display: clamp(80px, 12vw, 158px);  /* Big serif page titles like CLASSES, RATES, etc. */
+  --fs-h1: clamp(40px, 5vw, 64px);
+  --fs-h2: clamp(28px, 3vw, 40px);
+  --fs-h3: clamp(20px, 2vw, 28px);
+  --fs-body: 16px;
+  --fs-body-small: 14px;
+  --fs-caption: 12px;  /* Yogamaya uses tight 12px for paragraph default */
+
+  /* ---------- Typography — weights ---------- */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ---------- Typography — line-heights ---------- */
+  --lh-tight: 1.0;
+  --lh-snug: 1.15;
+  --lh-base: 1.5;
+  --lh-loose: 1.7;
+
+  /* ---------- Typography — tracking ---------- */
+  --tracking-tight: -0.02em;
+  --tracking-wide: 0.08em;
+  --tracking-eyebrow: 0.14em;
+
+  /* ---------- Spacing ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 36px;  /* WP --wp--preset--spacing--60 (2.25rem) */
+  --space-7: 54px;  /* WP --wp--preset--spacing--70 (3.38rem) */
+  --space-8: 81px;  /* WP --wp--preset--spacing--80 (5.06rem) */
+
+  /* ---------- Radius ---------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;  /* Button radius observed */
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* ---------- Shadow ---------- */
+  --shadow-xs: 0 1px 2px rgba(11, 42, 43, 0.04);
+  --shadow-sm: 0 2px 8px rgba(11, 42, 43, 0.06);
+  --shadow-md: 0 8px 24px rgba(11, 42, 43, 0.08);
+
+  /* ---------- Motion — duration ---------- */
+  --dur-fast: 108ms;  /* Closer button observed */
+  --dur-base: 324ms;  /* Universal hover transition (a, figure, nav a) — yogamaya signature timing */
+  --dur-slow: 400ms;  /* CTA button hover */
+  --dur-draw: 3000ms;  /* SVG @keyframes dash — line-art draw-on-load */
+  --dur-marquee: 14600ms;  /* Top banner marquee infinite scroll */
+  --dur-spin: 2000ms;  /* Loader spinner during page swap */
+
+  /* ---------- Motion — easing ---------- */
+  --ease-default: ease;  /* Yogamaya uses simple 'ease' for all hover transitions */
+  --ease-linear: linear;  /* SVG dash + marquee + spinner */
+
+  /* ---------- Layout ---------- */
+  --container: 1440px;  /* Full-bleed editorial; no narrow container */
+  --gutter: 32px;
+
+  /* ---------- Breakpoints ---------- */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 960px;
+  --bp-xl: 1200px;
+}

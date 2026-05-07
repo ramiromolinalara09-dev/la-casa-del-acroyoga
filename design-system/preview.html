@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Casa del Acroyoga · Design System Preview</title>
+<meta name="description" content="Preview navegable del design system v1.0.0">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="tokens.css">
+<style>
+@font-face { font-family: 'Outfit';    font-style: normal;  font-weight: 400 800; font-display: swap; src: url('assets/fonts/outfit-latin-ext.woff2') format('woff2'), url('assets/fonts/outfit-latin.woff2') format('woff2'); unicode-range: U+0000-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F; }
+@font-face { font-family: 'Cormorant'; font-style: italic;  font-weight: 400 500; font-display: swap; src: url('assets/fonts/cormorant-italic-latin-ext.woff2') format('woff2'), url('assets/fonts/cormorant-italic-latin.woff2') format('woff2'); unicode-range: U+0000-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body-stack);
+  font-size: var(--fs-body);
+  line-height: var(--lh-base);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--cobalt-700); text-decoration: none; transition: color var(--dur-base) var(--ease-out); }
+a:hover { color: var(--cobalt-800); }
+
+.shell { max-width: var(--container); margin: 0 auto; padding-inline: var(--gutter); }
+
+/* Italic accent reusable */
+.accent-italic {
+  font-family: var(--font-italic-accent-stack, 'Cormorant', Georgia, serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--cobalt-700);
+}
+
+/* ---- Doc nav ---- */
+.docnav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(250, 246, 236, 0.92);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--hairline);
+}
+.docnav-inner { display: flex; align-items: center; gap: var(--space-7); padding-block: var(--space-4); }
+.docnav-brand { display: flex; align-items: center; gap: var(--space-3); font-family: var(--font-body-stack); font-weight: 800; font-size: 18px; letter-spacing: -0.01em; color: var(--ink-900); }
+.docnav-brand svg { width: 22px; height: 22px; color: var(--cobalt-700); }
+.docnav-meta { font-family: var(--font-body-stack); font-size: var(--fs-caption); color: var(--ink-500); }
+.docnav-links { margin-left: auto; display: flex; gap: var(--space-5); flex-wrap: wrap; font-size: var(--fs-small); }
+.docnav-links a { color: var(--ink-700); font-weight: 500; }
+
+/* ---- Hero ---- */
+.preview-hero {
+  text-align: center;
+  padding-block: var(--space-11) var(--space-9);
+  background: linear-gradient(180deg, var(--cream-50) 0%, var(--cream-100) 100%);
+  border-bottom: 1px solid var(--hairline);
+  position: relative;
+  overflow: hidden;
+}
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body-stack);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--cobalt-700);
+}
+.hero-mark {
+  display: flex; justify-content: center; margin-bottom: var(--space-6);
+}
+.hero-mark svg { width: 84px; height: 84px; color: var(--cobalt-700); }
+
+/* Hero — el isologo ES el H1 */
+.hero-isologo {
+  display: block;
+  margin: 0 auto var(--space-6);
+  max-width: clamp(260px, 32vw, 420px);
+  width: 100%;
+  height: auto;
+}
+.hero-kicker { display: block; margin-bottom: var(--space-5); }
+.preview-hero { padding-block: var(--space-9) var(--space-9); }
+.hero-lede {
+  font-family: var(--font-body-stack);
+  font-style: normal;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-regular);
+  color: var(--ink-700);
+  margin-top: var(--space-5);
+  max-width: 640px;
+  margin-inline: auto;
+  line-height: var(--lh-snug);
+}
+.hero-lede em {
+  font-family: 'Cormorant', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--cobalt-700);
+}
+
+/* ---- Section base ---- */
+.section { padding-block: var(--section); border-bottom: 1px solid var(--hairline); }
+.section.alt { background: var(--cream-100); }
+.section-head { margin-bottom: var(--space-8); max-width: 820px; }
+.section-head .eyebrow { margin-bottom: var(--space-3); }
+.section-head h2 {
+  font-family: var(--font-body-stack);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink-900);
+}
+.section-head h2 em {
+  font-family: 'Cormorant', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--cobalt-700);
+}
+.section-head .lede { font-size: var(--fs-body-lg); color: var(--ink-700); margin-top: var(--space-3); }
+
+/* ---- Brand identity grid ---- */
+.brand-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
+@media (max-width: 768px) { .brand-grid { grid-template-columns: 1fr; } }
+.brand-tile {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--hairline);
+  background: var(--card);
+  padding: var(--space-7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+  position: relative;
+  overflow: hidden;
+}
+.brand-tile.dark { background: var(--cobalt-700); color: var(--cream-50); }
+.brand-tile.cream { background: var(--cream-200); }
+.brand-tile.outline { border: 2px solid var(--cobalt-700); background: var(--cream-50); }
+.brand-tile h4 { font-family: var(--font-body-stack); font-size: var(--fs-small); font-weight: var(--fw-medium); text-transform: uppercase; letter-spacing: var(--tracking-eyebrow); color: var(--ink-500); margin-bottom: var(--space-5); }
+.brand-tile.dark h4 { color: var(--cream-200); }
+.brand-tile img, .brand-tile object, .brand-tile svg.brand-svg { max-width: 100%; max-height: 240px; }
+.brand-tile .label { margin-top: var(--space-5); font-size: var(--fs-caption); color: var(--ink-500); font-family: var(--font-mono-stack); }
+.brand-tile.dark .label { color: var(--cream-300); }
+.brand-tile object { width: 240px; height: 240px; }
+
+/* Inverse logo via SVG inline so we can recolor */
+.brand-tile.dark .logo-svg path { fill: var(--cream-50); }
+
+/* ---- Visual references (illustrations from yogamaya pattern) ---- */
+.illustrations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+@media (max-width: 768px) { .illustrations-grid { grid-template-columns: 1fr; } }
+.illustration-tile {
+  background: var(--cream-100);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  text-align: center;
+  transition: all var(--dur-base) var(--ease-out);
+}
+.illustration-tile:hover { background: #FFFFFF; box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.illustration-tile img {
+  max-width: 100%;
+  height: 280px;
+  object-fit: contain;
+  margin-bottom: var(--space-4);
+}
+.illustration-tile h4 {
+  font-family: var(--font-body-stack);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-bold);
+  color: var(--ink-900);
+  margin-bottom: var(--space-2);
+}
+.illustration-tile p {
+  font-size: var(--fs-small);
+  color: var(--ink-700);
+  margin-bottom: var(--space-3);
+}
+.illustration-tile .vocab {
+  font-family: var(--font-mono-stack);
+  font-size: var(--fs-caption);
+  color: var(--cobalt-700);
+}
+
+/* ---- Palette ---- */
+.palette-grid { display: grid; gap: var(--space-7); }
+.palette-row { display: flex; flex-direction: column; gap: var(--space-3); }
+.palette-row h3 { font-family: var(--font-body-stack); font-size: var(--fs-small); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: var(--tracking-eyebrow); color: var(--ink-700); }
+.swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-3); }
+.swatch {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  background: var(--card);
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+.swatch:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.swatch-chip { aspect-ratio: 16/9; }
+.swatch-meta { padding: var(--space-3) var(--space-4); display: flex; flex-direction: column; gap: 2px; }
+.swatch-name { font-size: var(--fs-small); font-weight: var(--fw-semibold); color: var(--ink-900); font-family: var(--font-mono-stack); }
+.swatch-hex { font-size: var(--fs-caption); color: var(--ink-500); font-family: var(--font-mono-stack); }
+.swatch-use { font-size: var(--fs-caption); color: var(--ink-500); margin-top: 2px; line-height: 1.4; }
+
+/* ---- Typography demo ---- */
+.type-demo { display: grid; gap: var(--space-7); }
+.type-row {
+  display: grid; grid-template-columns: 200px 1fr; gap: var(--space-6); align-items: baseline;
+  padding-block: var(--space-4); border-bottom: 1px solid var(--hairline);
+}
+.type-meta { font-family: var(--font-mono-stack); font-size: var(--fs-caption); color: var(--ink-500); line-height: 1.5; }
+.type-meta strong { color: var(--ink-900); display: block; font-family: var(--font-mono-stack); font-size: var(--fs-small); }
+
+.tx-display { font-family: var(--font-body-stack); font-size: var(--fs-display); font-weight: var(--fw-extrabold); line-height: var(--lh-tight); letter-spacing: var(--tracking-tight); color: var(--ink-900); }
+.tx-h1 { font-family: var(--font-body-stack); font-size: var(--fs-h1); font-weight: var(--fw-bold); line-height: var(--lh-snug); letter-spacing: var(--tracking-tight); color: var(--ink-900); }
+.tx-h2 { font-family: var(--font-body-stack); font-size: var(--fs-h2); font-weight: var(--fw-bold); line-height: var(--lh-snug); letter-spacing: var(--tracking-tight); color: var(--ink-900); }
+.tx-h3 { font-family: var(--font-body-stack); font-size: var(--fs-h3); font-weight: var(--fw-semibold); line-height: var(--lh-snug); color: var(--ink-900); }
+.tx-h4 { font-family: var(--font-body-stack); font-size: var(--fs-h4); font-weight: var(--fw-semibold); color: var(--ink-900); }
+.tx-bodylg { font-family: var(--font-body-stack); font-size: var(--fs-body-lg); color: var(--ink-700); }
+.tx-body { font-family: var(--font-body-stack); font-size: var(--fs-body); color: var(--ink-700); line-height: var(--lh-base); }
+.tx-small { font-family: var(--font-body-stack); font-size: var(--fs-small); color: var(--ink-500); }
+.tx-caption { font-family: var(--font-body-stack); font-size: var(--fs-caption); color: var(--ink-500); }
+.tx-eyebrow { font-family: var(--font-body-stack); font-size: var(--fs-eyebrow); font-weight: var(--fw-medium); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--cobalt-700); }
+
+/* ---- Spacing visual ---- */
+.spacing-grid { display: flex; flex-direction: column; gap: var(--space-3); }
+.spacing-row { display: grid; grid-template-columns: 100px 100px 1fr; gap: var(--space-4); align-items: center; padding: var(--space-3) var(--space-4); border-radius: var(--radius-sm); transition: background var(--dur-base) var(--ease-out); }
+.spacing-row:hover { background: var(--cream-100); }
+.spacing-row code { font-family: var(--font-mono-stack); font-size: var(--fs-caption); color: var(--ink-700); }
+.spacing-row .px { font-family: var(--font-mono-stack); font-size: var(--fs-caption); color: var(--ink-500); }
+.spacing-bar { background: var(--cobalt-700); height: 8px; border-radius: 999px; }
+
+/* ---- Components ---- */
+.btn-primary, .btn-secondary, .btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  font-family: var(--font-body-stack);
+  font-size: var(--fs-small); font-weight: var(--fw-semibold);
+  letter-spacing: 0.01em;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--dur-slow) var(--ease-out);
+  border: 2px solid transparent;
+  text-decoration: none;
+}
+.btn-primary { background: var(--cobalt-700); color: var(--cream-50); padding: 12px 22px; }
+.btn-primary:hover { background: var(--cobalt-800); transform: translateY(-1px); box-shadow: var(--shadow-sm); color: var(--cream-50); }
+.btn-secondary { background: transparent; color: var(--cobalt-700); border-color: var(--cobalt-700); padding: 11px 21px; }
+.btn-secondary:hover { background: var(--cobalt-100); }
+.btn-ghost { background: transparent; color: var(--ink-700); padding: 8px 14px; }
+.btn-ghost:hover { background: var(--cream-100); color: var(--ink-900); }
+
+.component-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); }
+.component-card { background: var(--card); border: 1px solid var(--hairline); border-radius: var(--radius-lg); padding: var(--space-6); transition: all var(--dur-base) var(--ease-out); }
+.component-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.component-card h4 { font-family: var(--font-body-stack); font-size: var(--fs-small); text-transform: uppercase; letter-spacing: var(--tracking-eyebrow); color: var(--cobalt-700); font-weight: var(--fw-medium); margin-bottom: var(--space-4); }
+.component-card .demo { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-4); align-items: center; }
+.component-card pre { font-family: var(--font-mono-stack); font-size: var(--fs-caption); color: var(--ink-500); padding: var(--space-3) var(--space-4); background: var(--cream-100); border-radius: var(--radius-sm); overflow-x: auto; }
+
+.schedule-chip {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: 6px 14px;
+  background: var(--cobalt-100); color: var(--cobalt-800);
+  font-family: var(--font-body-stack); font-size: var(--fs-caption);
+  font-weight: var(--fw-medium); border-radius: var(--radius-pill);
+  letter-spacing: 0.04em;
+  transition: background var(--dur-base) var(--ease-out);
+}
+.schedule-chip:hover { background: var(--cobalt-300); }
+
+.field-input {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--input);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-family: var(--font-body-stack);
+  font-size: var(--fs-body);
+  color: var(--ink-900);
+  transition: all var(--dur-base) var(--ease-out);
+}
+.field-input:focus { outline: none; border-color: var(--cobalt-700); box-shadow: 0 0 0 3px var(--cobalt-glaze); }
+.field-input::placeholder { color: var(--ink-500); }
+
+/* ---- Diamond ornaments ---- */
+.diamond-row { display: flex; align-items: center; gap: var(--space-4); justify-content: center; padding-block: var(--space-5); }
+.diamond-row .accent {
+  color: var(--cobalt-700);
+  font-family: 'Cormorant', Georgia, serif;
+  font-style: italic;
+  font-size: var(--fs-h4);
+}
+
+/* ---- Motion demo ---- */
+.motion-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-5); }
+.motion-tile {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  background: var(--card);
+  text-align: center;
+  cursor: pointer;
+  transition: transform var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+}
+.motion-tile:hover { transform: translateY(-4px); background: var(--cobalt-100); border-color: var(--cobalt-300); }
+.motion-tile h5 { font-family: var(--font-body-stack); font-size: var(--fs-h4); font-weight: var(--fw-bold); color: var(--ink-900); margin-bottom: var(--space-2); }
+.motion-tile p { font-size: var(--fs-caption); color: var(--ink-500); font-family: var(--font-mono-stack); }
+.motion-tile.fast { transition-duration: var(--dur-fast); }
+.motion-tile.slow { transition-duration: var(--dur-slow); }
+
+/* SVG draw-on demo using REAL logo */
+.draw-stage {
+  display: flex; flex-direction: column; align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-9) var(--space-6);
+  background: var(--cream-100);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--hairline);
+  position: relative;
+}
+.draw-stage h5 {
+  font-family: var(--font-body-stack); font-weight: var(--fw-semibold);
+  font-size: var(--fs-h4); color: var(--ink-900); margin-bottom: var(--space-1);
+}
+.draw-stage .help {
+  font-family: var(--font-body-stack); font-size: var(--fs-small); color: var(--ink-700);
+  max-width: 520px; text-align: center; margin-bottom: var(--space-3);
+}
+.draw-stage .help em { font-family: 'Cormorant', Georgia, serif; font-style: italic; color: var(--cobalt-700); }
+.draw-stage .logo-draw {
+  width: 320px; height: 320px;
+  display: block;
+}
+.draw-stage .logo-draw path {
+  fill: none;
+  stroke: var(--cobalt-700);
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.draw-stage .logo-draw.animating path {
+  stroke-dasharray: 8000;
+  stroke-dashoffset: 8000;
+  animation: drawDemo var(--dur-draw) var(--ease-linear) forwards;
+}
+.draw-stage .logo-draw.animating-fill path {
+  animation: drawDemo var(--dur-draw) var(--ease-linear) forwards, fillIn 1s var(--ease-out) forwards calc(var(--dur-draw) - 200ms);
+}
+@keyframes drawDemo { to { stroke-dashoffset: 0; } }
+@keyframes fillIn { to { fill: var(--cobalt-700); } }
+
+/* ---- Sample landing snippet ---- */
+.landing-sample { background: var(--cream-50); border-radius: var(--radius-xl); border: 1px solid var(--hairline); padding: var(--space-9) var(--space-7); }
+.landing-sample .ls-hero { text-align: center; margin-bottom: var(--space-9); }
+.landing-sample .ls-eyebrow { color: var(--cobalt-700); }
+.landing-sample .ls-h { font-family: var(--font-body-stack); font-size: var(--fs-display); font-weight: var(--fw-extrabold); line-height: var(--lh-tight); letter-spacing: var(--tracking-tight); color: var(--ink-900); margin: var(--space-3) 0; }
+.landing-sample .ls-h em { font-family: 'Cormorant', Georgia, serif; font-style: italic; font-weight: 400; color: var(--cobalt-700); font-size: 0.92em; }
+.landing-sample .ls-lede { font-family: var(--font-body-stack); font-size: var(--fs-h3); color: var(--ink-700); max-width: 640px; margin-inline: auto; line-height: var(--lh-snug); }
+.landing-sample .ls-lede em { font-family: 'Cormorant', Georgia, serif; font-style: italic; color: var(--cobalt-700); }
+.landing-sample .ls-cta { display: flex; gap: var(--space-3); justify-content: center; margin-top: var(--space-6); flex-wrap: wrap; }
+.ls-divider { display: flex; align-items: center; gap: var(--space-4); margin-block: var(--space-8); color: var(--cobalt-700); }
+.ls-divider::before, .ls-divider::after { content: ''; flex: 1; height: 1px; background: var(--hairline); }
+.ls-feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-bottom: var(--space-9); }
+@media (max-width: 768px) { .ls-feats { grid-template-columns: 1fr; } }
+.ls-feat { padding: var(--space-6); background: var(--card); border-radius: var(--radius-lg); border: 1px solid var(--hairline); text-align: center; }
+.ls-feat svg { width: 36px; height: 36px; color: var(--cobalt-700); margin-bottom: var(--space-3); }
+.ls-feat h4 { font-family: var(--font-body-stack); font-size: var(--fs-h4); font-weight: var(--fw-bold); color: var(--ink-900); margin-bottom: var(--space-2); }
+.ls-feat p { font-size: var(--fs-small); color: var(--ink-700); }
+.ls-schedule { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; }
+
+/* Footer */
+.preview-footer { padding-block: var(--space-8); text-align: center; color: var(--ink-500); font-size: var(--fs-caption); background: var(--cream-200); border-top: 1px solid var(--hairline); }
+.preview-footer code { font-family: var(--font-mono-stack); }
+.preview-footer a { font-weight: var(--fw-medium); }
+
+/* Logo display sizing for inline SVG */
+.logo-pose-img { width: 240px; height: auto; display: block; }
+.logo-mark-lg { width: 96px; height: 96px; }
+
+/* Logo dark inverse: invert filter approach */
+.brand-tile.dark .logo-pose-img { filter: brightness(0) invert(1); }
+</style>
+</head>
+<body>
+
+<nav class="docnav" aria-label="Preview navigation">
+  <div class="shell docnav-inner">
+    <span class="docnav-brand">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4 L28 16 L16 28 L4 16 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="miter"/></svg>
+      La Casa del Acroyoga
+    </span>
+    <span class="docnav-meta">Design System v1.0.0 · 2026-05-07</span>
+    <div class="docnav-links">
+      <a href="#identity">Identidad</a>
+      <a href="#illustrations">Visuales</a>
+      <a href="#palette">Color</a>
+      <a href="#type">Tipografía</a>
+      <a href="#components">Componentes</a>
+      <a href="#motion">Motion</a>
+      <a href="#sample">Muestra</a>
+    </div>
+  </div>
+</nav>
+
+<header class="preview-hero">
+  <div class="shell">
+    <span class="eyebrow hero-kicker">DESIGN SYSTEM · v1.0.0</span>
+    <h1 aria-label="La Casa del Acroyoga">
+      <img class="hero-isologo" src="assets/logos/lcda-isologo-pose.svg" alt="La Casa del Acroyoga">
+    </h1>
+    <p class="hero-lede">Almanaque cobalto. El isologo funciona como H1 hero: el lockup stacked <em>La Casa del</em> + pose + ACROYOGA es la firma de la marca. Headings y wordmarks tipográficos heredan la misma estructura — Outfit medium tracking-wide arriba, Outfit extrabold all-caps abajo.</p>
+  </div>
+</header>
+
+<!-- ============ IDENTITY ============ -->
+<section id="identity" class="section">
+  <div class="shell">
+    <div class="section-head">
+      <span class="eyebrow">01 · IDENTIDAD</span>
+      <h2>Logos y <em>variantes</em></h2>
+      <p class="lede">Logo A (line-art pose, vectorizado con vtracer desde el JPG original) es el primario. El isotipo del rombo se usa standalone para favicons y elementos pequeños.</p>
+    </div>
+
+    <div class="brand-grid">
+      <div class="brand-tile">
+        <h4>Logo primario · sobre cream</h4>
+        <img class="logo-pose-img" src="assets/logos/lcda-isologo-pose.svg" alt="La Casa del Acroyoga · logo primario">
+        <span class="label">lcda-isologo-pose.svg · vectorizado</span>
+      </div>
+
+      <div class="brand-tile dark">
+        <h4>Logo primario · sobre cobalto</h4>
+        <img class="logo-pose-img" src="assets/logos/lcda-isologo-pose.svg" alt="La Casa del Acroyoga · logo inverse">
+        <span class="label" style="color:var(--cream-300)">filter: brightness(0) invert(1)</span>
+      </div>
+
+      <div class="brand-tile cream">
+        <h4>JPG original · referencia</h4>
+        <img class="logo-pose-img" src="assets/logos/lcda-isologo-pose-source.jpg" alt="JPG original">
+        <span class="label">lcda-isologo-pose-source.jpg</span>
+      </div>
+
+      <div class="brand-tile outline">
+        <h4>Isotipo · diamond</h4>
+        <div style="display:flex; gap:var(--space-7); align-items:center;">
+          <svg class="logo-mark-lg" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M32 4 L60 32 L32 60 L4 32 Z" fill="none" stroke="var(--cobalt-700)" stroke-width="2.5" stroke-linejoin="miter"/>
+          </svg>
+          <svg class="logo-mark-lg" viewBox="0 0 96 96" aria-hidden="true">
+            <g fill="none" stroke="var(--cobalt-700)" stroke-linejoin="miter">
+              <path d="M48 6 L90 48 L48 90 L6 48 Z" stroke-width="2"/>
+              <path d="M48 14 L82 48 L48 82 L14 48 Z" stroke-width="1.5" opacity="0.7"/>
+              <path d="M48 22 L74 48 L48 74 L22 48 Z" stroke-width="1.25" opacity="0.45"/>
+            </g>
+          </svg>
+        </div>
+        <span class="label">single + triple-line</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ILLUSTRATIONS / VISUALS ============ -->
+<section id="illustrations" class="section alt">
+  <div class="shell">
+    <div class="section-head">
+      <span class="eyebrow">02 · VISUALES</span>
+      <h2>Vocabulario gráfico <em>line-art en cobalto</em></h2>
+      <p class="lede">Set de ilustraciones generadas en la misma línea del logo (line-art en cobalto sobre cream), análogo a las 7 figuras decorativas que usa yogamaya. Para hero, "qué es acroyoga", section dividers, OG images. Hovéa para ver el lift sutil.</p>
+    </div>
+
+    <div class="illustrations-grid">
+      <article class="illustration-tile">
+        <img src="assets/images/illustration-group-jam.png" alt="Group jam — comunidad acroyoga">
+        <h4>Group jam</h4>
+        <p>Dos bases sosteniendo a un flyer en plank — triangulación clásica de jam. Refuerza el pillar de comunidad.</p>
+        <span class="vocab">jam · comunidad</span>
+      </article>
+      <article class="illustration-tile">
+        <img src="assets/images/illustration-single-flyer.png" alt="Single flyer balance — bird pose">
+        <h4>Single flyer</h4>
+        <p>Base sostén, flyer en bird pose con brazos extendidos. Pose elegante y reconocible.</p>
+        <span class="vocab">base · flyer · bird</span>
+      </article>
+      <article class="illustration-tile">
+        <img src="assets/images/illustration-washing-machine.png" alt="Washing machine — transición rotativa">
+        <h4>Washing machine</h4>
+        <p>Transición rotativa entre base y flyer. Captura el sentido de movimiento del acroyoga.</p>
+        <span class="vocab">washing machine · lavada</span>
+      </article>
+    </div>
+
+    <p style="margin-top:var(--space-7); font-size:var(--fs-small); color:var(--ink-500); text-align:center; font-family:var(--font-mono-stack);">
+      Generadas con <code>imagen</code> tool (gpt-image-2 vía kie.ai) · prompts diseñados para mantener la línea estética del logo
+    </p>
+  </div>
+</section>
+
+<!-- ============ PALETTE ============ -->
+<section id="palette" class="section">
+  <div class="shell">
+    <div class="section-head">
+      <span class="eyebrow">03 · COLOR</span>
+      <h2>Pareja monogámica <em>cobalto + cream</em></h2>
+      <p class="lede">Sin terciarios saturados. La textura visual viene de la ilustración line-art y la tipografía, no de bloques de color. Status colors mantenidos dentro de la paleta visual.</p>
+    </div>
+
+    <div class="palette-grid">
+      <div class="palette-row">
+        <h3>Cobalto · brand primary</h3>
+        <div class="swatches">
+          <div class="swatch"><div class="swatch-chip" style="background:var(--cobalt-900)"></div><div class="swatch-meta"><span class="swatch-name">--cobalt-900</span><span class="swatch-hex">#10295F</span><span class="swatch-use">Backgrounds inversos</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:var(--cobalt-800)"></div><div class="swatch-meta"><span class="swatch-name">--cobalt-800</span><span class="swatch-hex">#1F4790</span><span class="swatch-use">Hover de primary</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:var(--cobalt-700)"></div><div class="swatch-meta"><span class="swatch-name">--cobalt-700</span><span class="swatch-hex">#2861B8</span><span class="swatch-use">Brand primary · load-bearing</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:var(--cobalt-500)"></div><div class="swatch-meta"><span class="swatch-name">--cobalt-500</span><span class="swatch-hex">#5B85D1</span><span class="swatch-use">Accent · links</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:var(--cobalt-300)"></div><div class="swatch-meta"><span class="swatch-name">--cobalt-300</span><span class="swatch-hex">#9BB6E2</span><span class="swatch-use">Diamond outline interior</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:var(--cobalt-100)"></div><div class="swatch-meta"><span class="swatch-name">--cobalt-100</span><span class="swatch-hex">#DDE6F4</span><span class="swatch-use">Tinted backgrounds, badges</span></div></div>
+        </div>
+      </div>
+
+      <div class="palette-row">
+        <h3>Cream · surface</h3>
+        <div class="swatches">
+          <div class="swatch"><div class="swatch-chip" style="background:var(--cream-50); border-bottom:1px solid var(--hairline)"></div><div class="swatch-meta"><span class="swatch-name">--cream-50</span><span class="swatch-hex">#FAF6EC</span><span class="swatch-use">Page background</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:var(--cream-100)"></div><div class="swatch-meta"><span class="swatch-name">--cream-100</span><span class="swatch-hex">#F5EFE2</span><span class="swatch-use">Section muted</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:var(--cream-200)"></div><div class="swatch-meta"><span class="swatch-name">--cream-200</span><span class="swatch-hex">#EDE3D0</span><span class="swatch-use">Bands, dividers</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:var(--cream-300)"></div><div class="swatch-meta"><span class="swatch-name">--cream-300</span><span class="swatch-hex">#E0D2B8</span><span class="swatch-use">Hero subtleties</span></div></div>
+        </div>
+      </div>
+
+      <div class="palette-row">
+        <h3>Ink · texto</h3>
+        <div class="swatches">
+          <div class="swatch"><div class="swatch-chip" style="background:var(--ink-900)"></div><div class="swatch-meta"><span class="swatch-name">--ink-900</span><span class="swatch-hex">#0A1628</span><span class="swatch-use">Heading text · NO black puro</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:var(--ink-700)"></div><div class="swatch-meta"><span class="swatch-name">--ink-700</span><span class="swatch-hex">#2C3E5A</span><span class="swatch-use">Body text</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:var(--ink-500)"></div><div class="swatch-meta"><span class="swatch-name">--ink-500</span><span class="swatch-hex">#6B7E96</span><span class="swatch-use">Muted, captions</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:var(--ink-300)"></div><div class="swatch-meta"><span class="swatch-name">--ink-300</span><span class="swatch-hex">#A8B4C7</span><span class="swatch-use">Iconos secundarios</span></div></div>
+        </div>
+      </div>
+
+      <div class="palette-row">
+        <h3>Status</h3>
+        <div class="swatches">
+          <div class="swatch"><div class="swatch-chip" style="background:var(--success)"></div><div class="swatch-meta"><span class="swatch-name">--success</span><span class="swatch-hex">#3F7A66</span><span class="swatch-use">Confirmaciones</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:var(--warning)"></div><div class="swatch-meta"><span class="swatch-name">--warning</span><span class="swatch-hex">#C89B3C</span><span class="swatch-use">Avisos</span></div></div>
+          <div class="swatch"><div class="swatch-chip" style="background:var(--danger)"></div><div class="swatch-meta"><span class="swatch-name">--danger</span><span class="swatch-hex">#B44A3A</span><span class="swatch-use">Destructive</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TYPE ============ -->
+<section id="type" class="section alt">
+  <div class="shell">
+    <div class="section-head">
+      <span class="eyebrow">04 · TIPOGRAFÍA</span>
+      <h2>Outfit Bold <em>+</em> Cormorant italic accent</h2>
+      <p class="lede">Outfit (sans humanista geométrico) hereda la línea tipográfica del wordmark del logo — display, H1-H3, body, todo. Cormorant Italic en cobalto se reserva exclusivamente para acentos editoriales cortos: el "del" del wordmark, una palabra clave en un h2 ("<em class="accent-italic">en comunidad</em>"), eyebrow especial.</p>
+    </div>
+
+    <div class="type-demo">
+      <div class="type-row">
+        <div class="type-meta"><strong>--fs-display</strong>clamp(56,8vw,112)<br>Outfit ExtraBold (800)<br>tracking -0.025em</div>
+        <div class="tx-display">Acro<span class="accent-italic">yoga</span></div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>--fs-h1</strong>clamp(36,4.5vw,64)<br>Outfit Bold (700)</div>
+        <div class="tx-h1">Volar y basear, <span class="accent-italic">en comunidad.</span></div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>--fs-h2</strong>clamp(28,3vw,44)<br>Outfit Bold (700)</div>
+        <div class="tx-h2">Una <span class="accent-italic">casa</span> de práctica</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>--fs-h3</strong>clamp(22,2vw,32)<br>Outfit Semibold (600)</div>
+        <div class="tx-h3">Sin pareja, sin experiencia previa</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>--fs-h4</strong>20px<br>Outfit Semibold (600)</div>
+        <div class="tx-h4">Lunes, miércoles y sábados</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>--fs-body-lg</strong>18px<br>Outfit Regular (400)</div>
+        <div class="tx-bodylg">El acroyoga combina yoga, acrobacia y partner work. Suena complicado pero el primer día solo se aprenden tres cosas: cómo basear, cómo volar, cómo cuidarse.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>--fs-body</strong>16px<br>Outfit Regular (400) · 1.55</div>
+        <div class="tx-body">Llegas, te recibimos, encuentras a tu base o flyer dentro del jam. La práctica es divertida y segura. No hace falta experiencia previa o venir en pareja.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>--fs-small</strong>14px<br>Outfit Regular</div>
+        <div class="tx-small">Sábados de 10 a 12. Trae ropa cómoda, lo demás lo ponemos nosotros. Mérida, Yucatán.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>--fs-caption</strong>13px<br>Outfit Regular</div>
+        <div class="tx-caption">Calle X, colonia Y, Mérida 97000. WhatsApp 9999909291.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>--fs-eyebrow</strong>12px<br>Outfit Medium · 0.32em</div>
+        <div class="tx-eyebrow">PRÓXIMO JAM · MÉRIDA, YUC · DESDE 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPACING ============ -->
+<section id="spacing" class="section">
+  <div class="shell">
+    <div class="section-head">
+      <span class="eyebrow">05 · SPACING</span>
+      <h2>Escala <em>de 4 a 192px</em></h2>
+      <p class="lede">Base 4px. Sections usan space-10 (128px) por default; mobile baja a section-xs (64px). El ritmo editorial viene de la generosidad de espacio.</p>
+    </div>
+
+    <div class="spacing-grid">
+      <div class="spacing-row"><code>--space-1</code><span class="px">4px</span><div class="spacing-bar" style="width:4px"></div></div>
+      <div class="spacing-row"><code>--space-2</code><span class="px">8px</span><div class="spacing-bar" style="width:8px"></div></div>
+      <div class="spacing-row"><code>--space-3</code><span class="px">12px</span><div class="spacing-bar" style="width:12px"></div></div>
+      <div class="spacing-row"><code>--space-4</code><span class="px">16px</span><div class="spacing-bar" style="width:16px"></div></div>
+      <div class="spacing-row"><code>--space-5</code><span class="px">24px</span><div class="spacing-bar" style="width:24px"></div></div>
+      <div class="spacing-row"><code>--space-6</code><span class="px">32px</span><div class="spacing-bar" style="width:32px"></div></div>
+      <div class="spacing-row"><code>--space-7</code><span class="px">48px</span><div class="spacing-bar" style="width:48px"></div></div>
+      <div class="spacing-row"><code>--space-8</code><span class="px">64px</span><div class="spacing-bar" style="width:64px"></div></div>
+      <div class="spacing-row"><code>--space-9</code><span class="px">96px</span><div class="spacing-bar" style="width:96px"></div></div>
+      <div class="spacing-row"><code>--space-10</code><span class="px">128px</span><div class="spacing-bar" style="width:128px"></div></div>
+      <div class="spacing-row"><code>--space-11</code><span class="px">192px</span><div class="spacing-bar" style="width:192px"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPONENTS ============ -->
+<section id="components" class="section alt">
+  <div class="shell">
+    <div class="section-head">
+      <span class="eyebrow">06 · COMPONENTES</span>
+      <h2>Botones, cards, eyebrows <em>y otros patrones</em></h2>
+      <p class="lede">Hovéa los componentes para ver las transitions en acción (320ms ease-out universal, 480ms en CTAs primarios).</p>
+    </div>
+
+    <div class="component-grid">
+      <div class="component-card">
+        <h4>Botón primario</h4>
+        <div class="demo"><a href="#" class="btn-primary">Reserva tu lugar</a></div>
+        <pre>.btn-primary
+  bg cobalt-700
+  color cream-50
+  pad 12 22, radius 8
+  trans 480ms ease-out</pre>
+      </div>
+
+      <div class="component-card">
+        <h4>Botón secundario</h4>
+        <div class="demo"><a href="#" class="btn-secondary">Conoce la casa</a></div>
+        <pre>.btn-secondary
+  outline cobalt-700
+  hover bg cobalt-100</pre>
+      </div>
+
+      <div class="component-card">
+        <h4>Botón ghost</h4>
+        <div class="demo"><a href="#" class="btn-ghost">Ver horarios</a></div>
+        <pre>.btn-ghost
+  inline-flex
+  hover bg cream-100</pre>
+      </div>
+
+      <div class="component-card">
+        <h4>Eyebrow</h4>
+        <div class="demo"><span class="eyebrow">PRÓXIMO JAM</span></div>
+        <pre>Outfit 500
+  uppercase
+  tracking 0.32em
+  color cobalt-700</pre>
+      </div>
+
+      <div class="component-card">
+        <h4>Schedule chip</h4>
+        <div class="demo">
+          <span class="schedule-chip">Lunes · 8 PM</span>
+          <span class="schedule-chip">Sábado · 10 AM</span>
+        </div>
+        <pre>bg cobalt-100
+  color cobalt-800
+  radius pill, pad 6 14</pre>
+      </div>
+
+      <div class="component-card">
+        <h4>Form input</h4>
+        <div class="demo" style="display:block">
+          <input type="text" class="field-input" placeholder="Tu WhatsApp">
+        </div>
+        <pre>focus ring 3px
+  cobalt-glaze rgba</pre>
+      </div>
+
+      <div class="component-card">
+        <h4>Card</h4>
+        <div class="demo" style="display:block">
+          <div style="padding:var(--space-5); background:var(--cream-100); border:1px solid var(--hairline); border-radius:var(--radius-lg);">
+            <span class="eyebrow" style="color:var(--cobalt-700)">DESDE 2024</span>
+            <h5 style="font-family:var(--font-body-stack); font-size:var(--fs-h4); font-weight:700; margin:8px 0;">Una casa, no un studio</h5>
+            <p style="font-size:var(--fs-small); color:var(--ink-700);">Nos juntamos en una casa de Mérida. Comunidad sobre marca.</p>
+          </div>
+        </div>
+        <pre>bg cream-100
+  border hairline
+  hover shadow-md</pre>
+      </div>
+
+      <div class="component-card">
+        <h4>Section header</h4>
+        <div class="demo" style="display:block">
+          <span class="eyebrow">PRÓXIMO JAM</span>
+          <h3 style="font-family:var(--font-body-stack); font-size:24px; font-weight:700; margin-top:8px;">Volar y basear, <em class="accent-italic">en comunidad.</em></h3>
+        </div>
+        <pre>eyebrow + h2 italic accent
+  patrón signature</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MOTION + DRAW ============ -->
+<section id="motion" class="section">
+  <div class="shell">
+    <div class="section-head">
+      <span class="eyebrow">07 · MOTION</span>
+      <h2>Heredado de yogamaya: <em>signature animation</em></h2>
+      <p class="lede">Hover universal 320ms. CTA hover 480ms. Page transitions 420ms. Y el sello visual: <em class="accent-italic">SVG line-art draw-on</em> de 3 segundos para el logo de la pose y las ilustraciones, equivalente al peacock-feather-blast de yogamaya.</p>
+    </div>
+
+    <div class="motion-grid">
+      <div class="motion-tile fast"><h5>Fast</h5><p>--dur-fast<br>160ms · close/dismiss</p></div>
+      <div class="motion-tile"><h5>Base</h5><p>--dur-base<br>320ms · hover universal</p></div>
+      <div class="motion-tile slow"><h5>Slow</h5><p>--dur-slow<br>480ms · CTA hover</p></div>
+      <div class="motion-tile"><h5>Page</h5><p>--dur-page<br>420ms · route transitions</p></div>
+    </div>
+
+    <div class="diamond-row" style="margin-top:var(--space-9)">
+      <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M8 1 L15 8 L8 15 L1 8 Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      <span class="accent">SVG draw-on demo · el logo dibujándose como en yogamaya</span>
+      <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M8 1 L15 8 L8 15 L1 8 Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+    </div>
+
+    <div class="draw-stage">
+      <h5>Logo se traza al cargar — 3000ms linear</h5>
+      <p class="help">Lo que verás aplicado al logo real cuando esté en la landing: cada path se traza desde stroke-dashoffset máximo a 0 vía CSS <em>@keyframes</em>. Esto es <em>el sello visual</em> de yogamaya. Click en "Replay" para ver de nuevo.</p>
+      <div id="draw-target" class="logo-draw" style="width:320px; height:320px;"></div>
+      <button id="draw-replay" class="btn-secondary" type="button">Replay draw-on</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SAMPLE ============ -->
+<section id="sample" class="section alt">
+  <div class="shell">
+    <div class="section-head">
+      <span class="eyebrow">08 · MUESTRA</span>
+      <h2>Cómo se siente <em>en una landing</em></h2>
+      <p class="lede">Mini-fragmento de cómo se aplican los tokens en producción. La landing real (Fase 6) expande esto.</p>
+    </div>
+
+    <article class="landing-sample">
+      <div class="ls-hero">
+        <span class="eyebrow ls-eyebrow">MÉRIDA · YUC · DESDE 2024</span>
+        <h2 class="ls-h">La Casa <em>del</em> Acroyoga</h2>
+        <p class="ls-lede">Volar y basear <em>en comunidad</em>. Sin pareja, sin pose, sin solemnidad.</p>
+        <div class="ls-cta">
+          <a href="#" class="btn-primary">Reserva tu lugar</a>
+          <a href="#" class="btn-secondary">Conoce la casa</a>
+        </div>
+      </div>
+
+      <div class="ls-divider">
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M8 1 L15 8 L8 15 L1 8 Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+
+      <div class="ls-feats">
+        <div class="ls-feat">
+          <img src="assets/images/illustration-group-jam.png" alt="" style="width:120px; height:120px; object-fit:contain; margin-bottom:var(--space-3);">
+          <h4>Sin pareja</h4>
+          <p>En el jam todos rotan. Vienes solo y encuentras a tu base o flyer en el momento.</p>
+        </div>
+        <div class="ls-feat">
+          <img src="assets/images/illustration-single-flyer.png" alt="" style="width:120px; height:120px; object-fit:contain; margin-bottom:var(--space-3);">
+          <h4>Sin experiencia</h4>
+          <p>Te enseñamos a basear, a volar y a cuidarte. El primer día se aprende throne.</p>
+        </div>
+        <div class="ls-feat">
+          <img src="assets/images/illustration-washing-machine.png" alt="" style="width:120px; height:120px; object-fit:contain; margin-bottom:var(--space-3);">
+          <h4>Diversión y seguridad</h4>
+          <p>Las dos juntas, no una sin la otra. Nuestra responsabilidad es esa.</p>
+        </div>
+      </div>
+
+      <div style="text-align:center;">
+        <span class="eyebrow" style="margin-bottom:var(--space-4); display:inline-block;">HORARIOS</span>
+        <div class="ls-schedule">
+          <span class="schedule-chip">Lunes · 8 a 10 PM</span>
+          <span class="schedule-chip">Miércoles · 8 a 10 PM</span>
+          <span class="schedule-chip">Sábado · 10 a 12 PM</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer class="preview-footer">
+  <div class="shell">
+    <p>Bundle: <code>clients/la-casa-del-acroyoga/design-system/</code> · v1.0.0 · 2026-05-07</p>
+    <p style="margin-top:var(--space-2)">Generado con <a href=".." target="_blank">design-system-extract</a> + skill <code>frontend-design</code> + <code>imagen</code> kie.ai. Inspiración: <a href="../inspiration/yogamaya/" target="_blank">yogamaya bundle</a>.</p>
+  </div>
+</footer>
+
+<script>
+  // SVG draw-on replay — fetches SVG inline and animates each path
+  const drawTarget = document.getElementById('draw-target');
+  const replayBtn = document.getElementById('draw-replay');
+  let svgEl = null;
+
+  async function loadSvg() {
+    try {
+      const res = await fetch('assets/logos/lcda-isologo-pose.svg');
+      const text = await res.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(text, 'image/svg+xml');
+      svgEl = doc.documentElement;
+      // Ensure SVG fills its container
+      svgEl.setAttribute('width', '100%');
+      svgEl.setAttribute('height', '100%');
+      svgEl.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+      drawTarget.innerHTML = '';
+      drawTarget.appendChild(svgEl);
+      animate();
+    } catch (e) {
+      drawTarget.textContent = 'Error cargando SVG: ' + e.message;
+    }
+  }
+
+  function animate() {
+    if (!svgEl) return;
+    const paths = svgEl.querySelectorAll('path');
+    paths.forEach((p, i) => {
+      let len = 5000;
+      try { len = p.getTotalLength() || 5000; } catch (e) {}
+      p.style.fill = 'none';
+      p.style.stroke = '#2861B8';
+      p.style.strokeWidth = '2';
+      p.style.strokeLinejoin = 'round';
+      p.style.strokeLinecap = 'round';
+      p.style.strokeDasharray = len;
+      p.style.strokeDashoffset = len;
+      p.style.transition = 'none';
+      // Force reflow
+      void p.getBoundingClientRect();
+      // Apply animation
+      p.style.transition = 'stroke-dashoffset 3000ms linear';
+      p.style.strokeDashoffset = '0';
+    });
+    // Fill in at end
+    setTimeout(() => {
+      paths.forEach(p => {
+        p.style.transition = 'fill 600ms ease-out';
+        p.style.fill = '#2861B8';
+      });
+    }, 3000);
+  }
+
+  loadSvg();
+  if (replayBtn) replayBtn.addEventListener('click', () => animate());
+</script>
+
+</body>
+</html>
