@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 
-const FEATHER = "https://feather.rsvp/o/lacasadelacroyoga";
+const WHATSAPP = "https://wa.me/529999909291?text=Hola%2C%20quiero%20reservar%20mi%20primera%20clase%20de%20acroyoga.";
 
 export function Cta() {
   const reduce = useReducedMotion();
@@ -101,7 +101,7 @@ export function Cta() {
           }}
         >
           <a
-            href={FEATHER}
+            href={WHATSAPP}
             target="_blank"
             rel="noreferrer"
             className="btn"

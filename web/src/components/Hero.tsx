@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import { AnimatedHero } from "./AnimatedHero";
 
-const FEATHER = "https://feather.rsvp/o/lacasadelacroyoga";
+const WHATSAPP = "https://wa.me/529999909291?text=Hola%2C%20quiero%20reservar%20mi%20primera%20clase%20de%20acroyoga.";
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -18,7 +18,7 @@ export function Hero() {
         alignItems: "center",
         paddingTop: "clamp(64px, 7vw, 96px)",
         paddingBottom: "clamp(20px, 3vw, 40px)",
-        background: "#FAF4EB",
+        background: "#FBF5E9",
         overflow: "hidden",
       }}
     >
@@ -101,7 +101,7 @@ export function Hero() {
           transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1], delay: 0.9 }}
           style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", marginBottom: 12 }}
         >
-          <a href={FEATHER} target="_blank" rel="noreferrer" className="btn btn-primary">
+          <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn btn-primary">
             Reservar mi primera clase
             <ArrowRight />
           </a>

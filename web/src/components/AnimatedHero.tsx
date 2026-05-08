@@ -52,7 +52,7 @@ export function AnimatedHero() {
         width: "clamp(160px, 22vw, 260px)",
         aspectRatio: "1 / 1",
         margin: "0 auto",
-        background: "#FAF4EB",
+        background: "#FBF5E9",
         overflow: "hidden",
       }}
     >

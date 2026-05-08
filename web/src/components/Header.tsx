@@ -23,8 +23,8 @@ export function Header() {
       className="fixed inset-x-0 top-0 z-50 transition-[backdrop-filter,background,border-color] duration-500"
       style={{
         background: scrolled
-          ? "rgba(250, 244, 235, 0.92)"
-          : "rgba(250, 244, 235, 0.78)",
+          ? "rgba(251, 245, 233, 0.92)"
+          : "rgba(251, 245, 233, 0.78)",
         backdropFilter: "saturate(160%) blur(14px)",
         WebkitBackdropFilter: "saturate(160%) blur(14px)",
         borderBottom: "1px solid var(--hairline)",
@@ -71,7 +71,7 @@ export function Header() {
           </span>
         </a>
 
-        <nav className="ml-auto hidden md:flex gap-7" aria-label="Principal">
+        <nav className="hidden md:flex gap-7" aria-label="Principal">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -88,10 +88,10 @@ export function Header() {
         </nav>
 
         <a
-          href="https://feather.rsvp/o/lacasadelacroyoga"
+          href="https://wa.me/529999909291?text=Hola%2C%20quiero%20reservar%20mi%20primera%20clase%20de%20acroyoga."
           target="_blank"
           rel="noreferrer"
-          className="btn btn-primary"
+          className="btn btn-primary ml-auto"
           style={{ padding: "10px 18px", fontSize: 13 }}
         >
           Reservar

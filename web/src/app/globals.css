@@ -116,7 +116,12 @@ img, svg { display: block; max-width: 100%; }
 }
 
 @media (max-width: 640px) {
-  :root { --gutter: 20px; }
+  :root {
+    --gutter: 20px;
+    --section: 64px;
+    --section-sm: 48px;
+    --section-xs: 40px;
+  }
   .btn { padding: 12px 22px; font-size: 14px; }
   .about-illustration,
   .primera-illustration {
