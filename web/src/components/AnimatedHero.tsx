@@ -59,7 +59,6 @@ export function AnimatedHero() {
       {!reduce && (
         <video
           ref={videoRef}
-          src="/videos/hero-loop.mp4"
           autoPlay
           loop
           muted
@@ -76,10 +75,13 @@ export function AnimatedHero() {
             transition: "opacity 600ms ease-out",
             zIndex: 2,
           }}
-        />
+        >
+          <source src="/videos/hero-loop.webm" type="video/webm" />
+          <source src="/videos/hero-loop.mp4" type="video/mp4" />
+        </video>
       )}
 
-      {/* Static fallback — visible until video can play */}
+      {/* Static fallback — final pose, visible until video can play */}
       <div
         style={{
           position: "absolute",
@@ -89,10 +91,11 @@ export function AnimatedHero() {
           opacity: showVideo ? 0 : 1,
           transition: "opacity 600ms ease-out",
           zIndex: 1,
+          transform: "scale(1.18)",
         }}
       >
         <Image
-          src="/images/cream-hero-frame-1-greeting-v2.png"
+          src="/images/cream-hero-frame-end.png"
           alt=""
           width={500}
           height={500}
