@@ -1,0 +1,158 @@
+import Image from "next/image";
+import { Reveal } from "./Reveal";
+
+const schedule = [
+  { dia: "Lunes",     hora: "8:00 — 10:00 PM", tipo: "Práctica abierta" },
+  { dia: "Miércoles", hora: "8:00 — 10:00 PM", tipo: "Práctica abierta" },
+  { dia: "Sábado",    hora: "10:00 AM — 12:00 PM", tipo: "Jam dominical" },
+];
+
+export function Schedule() {
+  return (
+    <section
+      id="horarios"
+      style={{
+        paddingBlock: "var(--section)",
+        background: "var(--cobalt-900)",
+        color: "var(--cream-50)",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Background illustration watermark */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          right: "-8%",
+          bottom: "-12%",
+          width: 460,
+          height: 460,
+          opacity: 0.18,
+          pointerEvents: "none",
+        }}
+      >
+        <Image
+          src="/images/illustration-washing-machine.png"
+          alt=""
+          width={460}
+          height={460}
+          style={{
+            width: "100%",
+            height: "auto",
+            filter: "brightness(0) invert(1)",
+            opacity: 0.6,
+          }}
+        />
+      </div>
+
+      <div className="shell" style={{ position: "relative", zIndex: 2 }}>
+        <Reveal>
+          <span
+            className="eyebrow"
+            style={{
+              color: "var(--cobalt-300)",
+              marginBottom: 16,
+              display: "inline-block",
+            }}
+          >
+            03 · HORARIOS
+          </span>
+          <h2
+            style={{
+              fontFamily: "var(--font-outfit)",
+              fontWeight: 700,
+              fontSize: "var(--fs-h1)",
+              lineHeight: "var(--lh-snug)",
+              letterSpacing: "var(--tracking-tight)",
+              color: "var(--cream-50)",
+              marginBottom: 64,
+              maxWidth: 720,
+            }}
+          >
+            Tres ventanas a la semana,
+            <span style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontWeight: 400, color: "var(--cobalt-300)" }}>
+              {" "}reservas con un click.
+            </span>
+          </h2>
+        </Reveal>
+
+        <div
+          style={{
+            display: "grid",
+            gap: 1,
+            background: "rgba(155, 182, 226, 0.18)",
+            borderRadius: "var(--radius-lg)",
+            overflow: "hidden",
+            maxWidth: 760,
+          }}
+        >
+          {schedule.map((row, i) => (
+            <Reveal key={row.dia} delay={i * 0.08}>
+              <div
+                className="schedule-row"
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1.2fr 1fr",
+                  alignItems: "center",
+                  background: "var(--cobalt-800)",
+                  padding: "24px 32px",
+                  gap: 16,
+                  transition: "background var(--dur-base) var(--ease-out)",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "var(--font-outfit)",
+                    fontWeight: 600,
+                    fontSize: "var(--fs-h3)",
+                    color: "var(--cream-50)",
+                    letterSpacing: "var(--tracking-tight)",
+                  }}
+                >
+                  {row.dia}
+                </span>
+                <span
+                  style={{
+                    fontFamily: "var(--font-outfit)",
+                    fontSize: 17,
+                    color: "var(--cobalt-300)",
+                  }}
+                >
+                  {row.hora}
+                </span>
+                <span
+                  style={{
+                    fontFamily: "var(--font-cormorant)",
+                    fontStyle: "italic",
+                    fontWeight: 400,
+                    fontSize: 18,
+                    color: "var(--cobalt-300)",
+                    textAlign: "right",
+                  }}
+                >
+                  {row.tipo}
+                </span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={0.4}>
+          <p
+            style={{
+              marginTop: 40,
+              fontSize: 15,
+              color: "var(--cobalt-300)",
+              maxWidth: 560,
+            }}
+          >
+            Si vienes por primera vez, llega 10 minutos antes. Trae ropa cómoda
+            que no se trepe (leggings o shorts ajustados funcionan mejor que
+            sueltos).
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,145 @@
+/* La Casa del Acroyoga — Design tokens (CSS custom properties)
+ * Generated from tokens.json by .claude/tools/design-system-extract/
+ * Captured: 2026-05-07
+ *
+ * Drop-in for new artefacts (HTML decks, internal tools, email templates,
+ * future landings). Pair with assets/fonts/*.woff2 or load fonts from
+ * Google Fonts as defined in design-system.md §2.3.
+ */
+
+:root {
+  /* ---------- Raw palette ---------- */
+  --cobalt-900: #10295F;  /* Cobalto más profundo — backgrounds inversos, link visited */
+  --cobalt-800: #1F4790;  /* Cobalto oscuro — hover de primary */
+  --cobalt-700: #2861B8;  /* Brand primary — load-bearing, sampleado del Logo A */
+  --cobalt-500: #5B85D1;  /* Cobalto medio — accent, links */
+  --cobalt-300: #9BB6E2;  /* Cobalto claro — diamond outline interior, accent suave */
+  --cobalt-100: #DDE6F4;  /* Cobalto pastel — tinted backgrounds, badges fill */
+  --cream-50: #FAF6EC;  /* Page background — primary surface */
+  --cream-100: #F5EFE2;  /* Warm off-white — section muted */
+  --cream-200: #EDE3D0;  /* Cream medio — bands, dividers */
+  --cream-300: #E0D2B8;  /* Cream cálido — hero subtleties */
+  --ink-900: #0A1628;  /* Heading text — deep cobalt-ink, NO black puro */
+  --ink-700: #2C3E5A;  /* Body text */
+  --ink-500: #6B7E96;  /* Muted, captions, placeholders */
+  --ink-300: #A8B4C7;  /* Iconos secundarios sobre cream */
+  --success: #3F7A66;  /* Confirmaciones (cobalto-verde para no romper paleta) */
+  --warning: #C89B3C;
+  --danger: #B44A3A;  /* Destructive */
+
+  /* ---------- Alpha ---------- */
+  --hairline: rgba(10, 22, 40, 0.10);  /* Borders sutiles sobre cream */
+  --hairline-strong: rgba(10, 22, 40, 0.18);  /* Form inputs, separators */
+  --cobalt-glaze: rgba(40, 97, 184, 0.08);  /* Highlight cobalto sutil */
+
+  /* ---------- Semantic ---------- */
+  --background: #FAF6EC;
+  --foreground: #0A1628;
+  --card: #FFFFFF;
+  --card-foreground: #0A1628;
+  --popover: #FFFFFF;
+  --popover-foreground: #0A1628;
+  --primary: #2861B8;
+  --primary-foreground: #FAF6EC;
+  --secondary: #F5EFE2;
+  --secondary-foreground: #0A1628;
+  --muted: #F5EFE2;
+  --muted-foreground: #6B7E96;
+  --accent: #5B85D1;
+  --accent-foreground: #FAF6EC;
+  --destructive: #B44A3A;
+  --warning: #C89B3C;
+  --warning-foreground: #0A1628;
+  --border: rgba(10, 22, 40, 0.10);
+  --input: rgba(10, 22, 40, 0.18);
+  --ring: #2861B8;
+
+  /* ---------- Typography — families ---------- */
+  --font-display-stack: Outfit, 'Helvetica Neue', Arial, sans-serif;  /* Display sans humanista — matchea el wordmark del Logo A. Pesos 600, 700, 800 para H1/hero/page titles. */
+  --font-body-stack: Outfit, 'Helvetica Neue', Arial, sans-serif;  /* Body sans (mismo family que display, peso menor). 400, 500, 600. */
+  --font-italic-accent-stack: Cormorant, 'Cormorant Garamond', Georgia, serif;  /* Reservado SOLO para italic accent corto en cobalto (palabra suelta tipo 'del', 'en comunidad'). NUNCA para body ni para más de 3-4 palabras seguidas. */
+  --font-mono-stack: ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ---------- Typography — sizes ---------- */
+  --fs-display: clamp(56px, 8vw, 112px);  /* Hero — ACROYOGA en wordmark, page titles. Outfit 700/800 — más bajo que Cormorant porque el sans toma más ancho. */
+  --fs-h1: clamp(36px, 4.5vw, 64px);
+  --fs-h2: clamp(28px, 3vw, 44px);
+  --fs-h3: clamp(22px, 2vw, 32px);
+  --fs-h4: 20px;
+  --fs-body-lg: 18px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --fs-caption: 13px;
+  --fs-eyebrow: 12px;  /* Pre-headings tracking-wide, all-caps Outfit 500 */
+
+  /* ---------- Typography — weights ---------- */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;  /* H1/H2 default */
+  --fw-extrabold: 800;  /* Hero display weight — ACROYOGA wordmark match */
+
+  /* ---------- Typography — line-heights ---------- */
+  --lh-tight: 1.0;  /* Display headings */
+  --lh-snug: 1.1;  /* H1-H3 sans aprieta más que serif */
+  --lh-base: 1.55;  /* Body paragraphs */
+  --lh-loose: 1.75;  /* Long-form reading */
+
+  /* ---------- Typography — tracking ---------- */
+  --tracking-tight: -0.025em;  /* Display Outfit Bold — sans bold se ajusta levemente más apretado */
+  --tracking-wide: 0.08em;
+  --tracking-eyebrow: 0.32em;  /* All-caps small eyebrows — heredado del wordmark stacked LA CASA DEL */
+
+  /* ---------- Spacing ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --space-11: 192px;
+
+  /* ---------- Radius ---------- */
+  --radius-none: 0px;  /* Diamond ornament + dividers — geometría afilada */
+  --radius-sm: 4px;
+  --radius-md: 8px;  /* Buttons, badges suaves */
+  --radius-lg: 16px;  /* Cards default */
+  --radius-xl: 24px;  /* Hero cards, feature cards */
+  --radius-pill: 999px;  /* Pills, eyebrows, schedule chips */
+
+  /* ---------- Shadow ---------- */
+  --shadow-xs: 0 1px 2px rgba(10, 22, 40, 0.04);
+  --shadow-sm: 0 2px 8px rgba(10, 22, 40, 0.06);
+  --shadow-md: 0 8px 24px rgba(10, 22, 40, 0.08);  /* Card hover */
+  --shadow-lg: 0 24px 60px rgba(10, 22, 40, 0.12);  /* Modals, lifted hero elements */
+
+  /* ---------- Motion — duration ---------- */
+  --dur-fast: 160ms;  /* Close, dismiss */
+  --dur-base: 320ms;  /* Hover universal — heredado del 324ms de yogamaya, redondeado */
+  --dur-slow: 480ms;  /* CTA hover, dropdown open */
+  --dur-page: 420ms;  /* Page transitions (View Transitions API) */
+  --dur-draw: 3000ms;  /* SVG line-art draw-on para el logo de la pose */
+
+  /* ---------- Motion — easing ---------- */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);  /* Default ease — refined, organic */
+  --ease-in-out: cubic-bezier(0.7, 0, 0.3, 1);
+  --ease-linear: linear;  /* Para SVG dash + marquee */
+
+  /* ---------- Layout ---------- */
+  --container: 1200px;  /* Page max-width — editorial breathing room */
+  --gutter: 32px;  /* Page horizontal padding */
+  --section: 128px;  /* .section vertical padding */
+  --section-sm: 96px;
+  --section-xs: 64px;
+
+  /* ---------- Breakpoints ---------- */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 960px;
+  --bp-xl: 1200px;
+  --bp-2xl: 1440px;
+}
