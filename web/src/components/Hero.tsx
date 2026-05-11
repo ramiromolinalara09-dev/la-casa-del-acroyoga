@@ -48,7 +48,7 @@ export function Hero() {
           transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
           style={{ marginBottom: 12, display: "inline-block" }}
         >
-          MÉRIDA · YUCATÁN · MX
+          MÉRIDA · YUCATÁN
         </motion.span>
 
         <motion.h1
@@ -92,7 +92,7 @@ export function Hero() {
             margin: "0 auto 16px",
           }}
         >
-          Yoga, acrobacia y masaje thai en una sola clase. Llegas solo y te emparejamos.
+          Un espacio para conectar cuerpo, mente y comunidad a través del movimiento.
         </motion.p>
 
         <motion.div
@@ -120,8 +120,8 @@ export function Hero() {
             marginTop: 0,
           }}
         >
-          <MetaItem label="Estudio" value="Mérida · Centro" />
-          <MetaItem label="Desde" value="2019" />
+          <MetaItem label="Estudio" value="Mérida Yucatán" />
+          <MetaItem label="Desde" value="2020" />
         </motion.div>
       </div>
     </section>

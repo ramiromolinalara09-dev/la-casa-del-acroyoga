@@ -22,7 +22,7 @@ export function About() {
       >
         <Reveal className="about-copy">
           <span className="eyebrow" style={{ marginBottom: 16, display: "inline-block" }}>
-            01 · ¿QUÉ ES ACROYOGA?
+            01 · BIENVENIDA
           </span>
           <h2
             style={{
@@ -35,9 +35,8 @@ export function About() {
               marginBottom: 24,
             }}
           >
-            Yoga{" "}
-            <span className="font-italic-accent">en</span> comunidad,
-            confianza y juego.
+            Bienvenido a La Casa del{" "}
+            <span className="font-italic-accent">Acroyoga</span>.
           </h2>
           <p
             style={{
@@ -47,11 +46,32 @@ export function About() {
               marginBottom: 16,
             }}
           >
-            El acroyoga combina yoga, acrobacia y masaje terapéutico. Se practica entre
-            dos o más personas: alguien hace de <strong style={{ color: "var(--ink-900)", fontWeight: 600 }}>base</strong>{" "}
-            (sostiene), alguien hace de <strong style={{ color: "var(--ink-900)", fontWeight: 600 }}>flyer</strong>{" "}
-            (vuela), y siempre hay un <strong style={{ color: "var(--ink-900)", fontWeight: 600 }}>spotter</strong>{" "}
-            cerca para cuidar el espacio.
+            Un espacio creado para conectar cuerpo, mente y comunidad a través del
+            movimiento, la confianza y la expresión consciente. Aquí vivimos el acroyoga
+            como una experiencia de transformación, juego y crecimiento personal.
+          </p>
+          <p
+            style={{
+              fontSize: "var(--fs-body-lg)",
+              lineHeight: "var(--lh-base)",
+              color: "var(--ink-700)",
+              marginBottom: 16,
+            }}
+          >
+            Ofrecemos clases, talleres, retiros y encuentros diseñados para todos los
+            niveles, desde quienes dan sus primeros vuelos hasta practicantes avanzados
+            que buscan profundizar su práctica en un entorno seguro, humano e inspirador.
+          </p>
+          <p
+            style={{
+              fontSize: "var(--fs-body-lg)",
+              lineHeight: "var(--lh-base)",
+              color: "var(--ink-700)",
+              marginBottom: 16,
+            }}
+          >
+            Más que una escuela, somos una comunidad donde el equilibrio se construye{" "}
+            <span className="font-italic-accent">juntos</span>.
           </p>
           <p
             style={{
@@ -60,10 +80,7 @@ export function About() {
               color: "var(--ink-700)",
             }}
           >
-            En La Casa entramos despacio: te emparejamos con alguien de tu nivel, te
-            mostramos cómo comunicar peso y posición, y construimos las posturas paso
-            a paso. <span className="font-italic-accent">Nadie cae</span>: un spotter siempre
-            está ahí.
+            Descubre una nueva forma de moverte, conectar y elevarte.
           </p>
         </Reveal>
 
@@ -97,8 +114,8 @@ export function About() {
               }}
             >
               <Image
-                src="/images/illustration-group-jam.png"
-                alt="Ilustración de tres figuras en triangulación de acroyoga"
+                src="/images/illustration-community.png"
+                alt="Ilustración de cinco figuras en formación circular de acroyoga"
                 width={600}
                 height={600}
                 style={{

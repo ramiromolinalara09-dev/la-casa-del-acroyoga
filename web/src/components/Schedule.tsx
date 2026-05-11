@@ -2,10 +2,15 @@ import Image from "next/image";
 import { Reveal } from "./Reveal";
 
 const schedule = [
-  { dia: "Lunes",     hora: "8:00 — 10:00 PM", tipo: "Práctica abierta" },
-  { dia: "Miércoles", hora: "8:00 — 10:00 PM", tipo: "Práctica abierta" },
-  { dia: "Sábado",    hora: "10:00 AM — 12:00 PM", tipo: "Jam dominical" },
+  { dia: "Lunes",     hora: "8:00 — 10:00 PM",    cupo: 15 },
+  { dia: "Miércoles", hora: "8:00 — 10:00 PM",    cupo: 15 },
+  { dia: "Sábado",    hora: "10:00 AM — 12:00 PM", cupo: 8  },
 ];
+
+const buildWa = (dia: string, hora: string) =>
+  `https://wa.me/529999909291?text=${encodeURIComponent(
+    `Hola, quiero reservar la clase del ${dia} ${hora}.`
+  )}`;
 
 export function Schedule() {
   return (
@@ -19,7 +24,6 @@ export function Schedule() {
         overflow: "hidden",
       }}
     >
-      {/* Background illustration watermark */}
       <div
         aria-hidden
         style={{
@@ -70,7 +74,7 @@ export function Schedule() {
               maxWidth: 720,
             }}
           >
-            Tres ventanas a la semana,
+            Tres oportunidades a la semana,
             <span style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontWeight: 400, color: "var(--cobalt-300)" }}>
               {" "}reservas con un click.
             </span>
@@ -84,7 +88,7 @@ export function Schedule() {
             background: "rgba(155, 182, 226, 0.18)",
             borderRadius: "var(--radius-lg)",
             overflow: "hidden",
-            maxWidth: 760,
+            maxWidth: 880,
           }}
         >
           {schedule.map((row, i) => (
@@ -93,7 +97,7 @@ export function Schedule() {
                 className="schedule-row"
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "1fr 1.2fr 1fr",
+                  gridTemplateColumns: "1fr 1.2fr 1fr auto",
                   alignItems: "center",
                   background: "var(--cobalt-800)",
                   padding: "24px 32px",
@@ -126,13 +130,27 @@ export function Schedule() {
                     fontFamily: "var(--font-cormorant)",
                     fontStyle: "italic",
                     fontWeight: 400,
-                    fontSize: 18,
+                    fontSize: 16,
                     color: "var(--cobalt-300)",
-                    textAlign: "right",
                   }}
                 >
-                  {row.tipo}
+                  Cupo limitado a {row.cupo} personas
                 </span>
+                <a
+                  href={buildWa(row.dia, row.hora)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-primary"
+                  style={{
+                    padding: "10px 18px",
+                    fontSize: 13,
+                    background: "var(--cream-50)",
+                    color: "var(--cobalt-900)",
+                    justifySelf: "end",
+                  }}
+                >
+                  Reservar
+                </a>
               </div>
             </Reveal>
           ))}

@@ -10,22 +10,37 @@ const steps = [
   {
     n: "02",
     title: "Calentamiento",
-    body: "20 minutos de movilidad articular y activación. Risas garantizadas.",
+    body: "Movilidad articular y activación. Risas garantizadas.",
   },
   {
     n: "03",
-    title: "Pareo",
-    body: "Te emparejamos con alguien de peso/altura compatible. Empiezas como flyer y como base.",
+    title: "Yoga",
+    body: "Estiramientos, respiración y ejercicios de conexión corporal que te ayudan a mejorar tu movilidad y disfrutar mejor la parte acrobática de la clase.",
   },
   {
     n: "04",
-    title: "Posturas",
-    body: "Construimos 3-5 posturas paso a paso. Siempre hay un spotter listo.",
+    title: "Core",
+    body: "Fortalecimiento del centro del cuerpo. Mejora la estabilidad y aumenta la seguridad en la práctica.",
   },
   {
     n: "05",
-    title: "Relajación",
-    body: "Cerramos con masaje terapéutico (te lo dan, lo das). 10 minutos de silencio.",
+    title: "Inversiones",
+    body: "Posturas donde la cabeza queda debajo del corazón. Siempre con supervisión y progresiones que se adaptan a cada nivel.",
+  },
+  {
+    n: "06",
+    title: "Calibraciones en pareja",
+    body: "Aprendemos cambios y traslados de peso, a trabajar con el otro como un mismo sistema.",
+  },
+  {
+    n: "07",
+    title: "Flow",
+    body: "Secuencia de movimientos conectados de forma fluida. Contamos con variaciones para cada nivel.",
+  },
+  {
+    n: "08",
+    title: "Cool down",
+    body: "Estiramientos en grupo para cerrar.",
   },
 ];
 
@@ -101,7 +116,7 @@ export function FirstClass() {
 
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             {steps.map((step, i) => (
-              <Reveal key={step.n} delay={i * 0.08}>
+              <Reveal key={step.n} delay={i * 0.05}>
                 <div
                   style={{
                     display: "grid",

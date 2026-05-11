@@ -88,8 +88,7 @@ export function Cta() {
             margin: "0 auto 48px",
           }}
         >
-          Tu primera clase es la que más se siente. Reserva tu lugar y
-          llega 10 minutos antes.
+          Agenda tu clase prueba.
         </p>
 
         <div
