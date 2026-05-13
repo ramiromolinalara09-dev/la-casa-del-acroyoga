@@ -24,8 +24,8 @@ const steps = [
   },
   {
     n: "05",
-    title: "Inversiones",
-    body: "Posturas donde la cabeza queda debajo del corazón. Siempre con supervisión y progresiones que se adaptan a cada nivel.",
+    title: "Inversiones en la práctica",
+    body: "Las inversiones son una parte fundamental del acroyoga. Consisten en posturas donde el cuerpo se coloca de forma invertida, siempre de manera progresiva y segura.",
   },
   {
     n: "06",

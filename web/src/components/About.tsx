@@ -22,7 +22,7 @@ export function About() {
       >
         <Reveal className="about-copy">
           <span className="eyebrow" style={{ marginBottom: 16, display: "inline-block" }}>
-            01 · BIENVENIDA
+            01 · ¿QUÉ ES ACROYOGA?
           </span>
           <h2
             style={{
@@ -35,8 +35,9 @@ export function About() {
               marginBottom: 24,
             }}
           >
-            Bienvenido a La Casa del{" "}
-            <span className="font-italic-accent">Acroyoga</span>.
+            Experiencia{" "}
+            <span className="font-italic-accent">en</span> comunidad,
+            confianza, juego y diversión.
           </h2>
           <p
             style={{
@@ -46,41 +47,42 @@ export function About() {
               marginBottom: 16,
             }}
           >
-            Un espacio creado para conectar cuerpo, mente y comunidad a través del
-            movimiento, la confianza y la expresión consciente. Aquí vivimos el acroyoga
-            como una experiencia de transformación, juego y crecimiento personal.
+            El acroyoga combina yoga, acrobacia y{" "}
+            <span className="font-italic-accent">conexión humana</span>
+            <sup style={{ fontSize: "0.65em", color: "var(--cobalt-700)", marginLeft: 1 }}>1</sup>
+            . Se practica entre dos o más personas: alguien hace de{" "}
+            <strong style={{ color: "var(--ink-900)", fontWeight: 600 }}>base</strong>{" "}
+            (sostiene), alguien hace de{" "}
+            <strong style={{ color: "var(--ink-900)", fontWeight: 600 }}>flyer</strong>{" "}
+            (vuela), y siempre hay un{" "}
+            <strong
+              style={{
+                color: "var(--ink-900)",
+                fontWeight: 600,
+                borderBottom: "1px dotted var(--cobalt-300)",
+                cursor: "help",
+              }}
+              title="Cuidador encargado de brindar seguridad y apoyo durante la práctica"
+            >
+              spotter
+            </strong>{" "}
+            cerca para cuidar el espacio.
           </p>
           <p
             style={{
-              fontSize: "var(--fs-body-lg)",
-              lineHeight: "var(--lh-base)",
-              color: "var(--ink-700)",
-              marginBottom: 16,
+              fontSize: 13,
+              lineHeight: 1.55,
+              color: "var(--ink-500)",
+              fontStyle: "italic",
+              marginTop: 8,
+              paddingLeft: 12,
+              borderLeft: "2px solid var(--cobalt-300)",
             }}
           >
-            Ofrecemos clases, talleres, retiros y encuentros diseñados para todos los
-            niveles, desde quienes dan sus primeros vuelos hasta practicantes avanzados
-            que buscan profundizar su práctica en un entorno seguro, humano e inspirador.
-          </p>
-          <p
-            style={{
-              fontSize: "var(--fs-body-lg)",
-              lineHeight: "var(--lh-base)",
-              color: "var(--ink-700)",
-              marginBottom: 16,
-            }}
-          >
-            Más que una escuela, somos una comunidad donde el equilibrio se construye{" "}
-            <span className="font-italic-accent">juntos</span>.
-          </p>
-          <p
-            style={{
-              fontSize: "var(--fs-body-lg)",
-              lineHeight: "var(--lh-base)",
-              color: "var(--ink-700)",
-            }}
-          >
-            Descubre una nueva forma de moverte, conectar y elevarte.
+            <sup style={{ fontSize: "0.85em", color: "var(--cobalt-700)", marginRight: 4 }}>1</sup>
+            A través del movimiento, la confianza y el trabajo en equipo, se desarrolla
+            fuerza, equilibrio, flexibilidad, comunicación y presencia, entre muchas
+            cosas más.
           </p>
         </Reveal>
 

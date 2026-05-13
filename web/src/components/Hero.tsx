@@ -13,11 +13,11 @@ export function Hero() {
       id="top"
       style={{
         position: "relative",
-        minHeight: "100vh",
+        minHeight: "100dvh",
         display: "flex",
         alignItems: "center",
-        paddingTop: "clamp(64px, 7vw, 96px)",
-        paddingBottom: "clamp(20px, 3vw, 40px)",
+        paddingTop: "clamp(88px, 6vw, 104px)",
+        paddingBottom: "clamp(36px, 4vh, 56px)",
         background: "#FBF5E9",
         overflow: "hidden",
       }}
@@ -41,22 +41,12 @@ export function Hero() {
       <DecorativeDiamond top="24%" right="17%" rotate={-12} size={18} delay={0.6} opacity={0.22} />
 
       <div className="shell" style={{ position: "relative", textAlign: "center", zIndex: 2, width: "100%" }}>
-        <motion.span
-          className="eyebrow"
-          initial={{ opacity: 0, y: reduce ? 0 : 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-          style={{ marginBottom: 12, display: "inline-block" }}
-        >
-          MÉRIDA · YUCATÁN
-        </motion.span>
-
         <motion.h1
           aria-label="La Casa del Acroyoga"
           initial={{ opacity: 0, scale: reduce ? 1 : 0.94, y: reduce ? 0 : 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.1, ease: [0.2, 0.8, 0.2, 1], delay: 0.15 }}
-          style={{ marginBottom: 12 }}
+          style={{ marginBottom: 4 }}
         >
           <AnimatedHero />
         </motion.h1>
@@ -66,11 +56,11 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1], delay: 0.6 }}
           style={{
-            fontSize: "clamp(32px, 5.5vw, 72px)",
+            fontSize: "clamp(26px, 3.4vw, 48px)",
             lineHeight: 1.05,
             color: "var(--ink-900)",
-            maxWidth: 900,
-            margin: "0 auto 8px",
+            maxWidth: 800,
+            margin: "0 auto 4px",
             fontWeight: 700,
             letterSpacing: "-0.025em",
           }}
@@ -80,26 +70,49 @@ export function Hero() {
           Mérida.
         </motion.p>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: reduce ? 0 : 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1], delay: 0.75 }}
           style={{
-            fontSize: 16,
-            lineHeight: 1.55,
-            color: "var(--ink-500)",
-            maxWidth: 560,
+            maxWidth: "min(94%, 880px)",
             margin: "0 auto 16px",
+            display: "flex",
+            flexDirection: "column",
+            gap: 10,
+            color: "var(--ink-500)",
+            lineHeight: 1.55,
+            fontSize: "clamp(14px, 1vw, 16px)",
           }}
         >
-          Un espacio para conectar cuerpo, mente y comunidad a través del movimiento.
-        </motion.p>
+          <p
+            style={{
+              fontWeight: 500,
+              color: "var(--cobalt-700)",
+              fontSize: "clamp(26px, 2.6vw, 38px)",
+              lineHeight: 1.15,
+              letterSpacing: "-0.02em",
+              marginBottom: 4,
+            }}
+          >
+            Bienvenido a{" "}
+            <span className="font-italic-accent" style={{ color: "var(--cobalt-900)" }}>
+              La Casa del Acroyoga
+            </span>
+            .
+          </p>
+          <p>
+            Un espacio creado para conectar cuerpo, mente y comunidad a través del
+            movimiento, la confianza y la expresión consciente. Aquí vivimos el acroyoga
+            como una experiencia de transformación, juego y crecimiento personal.
+          </p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: reduce ? 0 : 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1], delay: 0.9 }}
-          style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", marginBottom: 12 }}
+          style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", marginBottom: 28 }}
         >
           <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn btn-primary">
             Reservar mi primera clase
@@ -120,7 +133,7 @@ export function Hero() {
             marginTop: 0,
           }}
         >
-          <MetaItem label="Estudio" value="Mérida Yucatán" />
+          <MetaItem label="Estudio" value="Mérida, Yucatán" />
           <MetaItem label="Desde" value="2020" />
         </motion.div>
       </div>
@@ -166,28 +179,51 @@ function ArrowRight() {
 }
 
 function DecorativeDiamond({
-  top, bottom, left, right, rotate, size, delay, opacity = 0.5,
+  top, bottom, left, right, rotate, size, delay, opacity = 0.55,
 }: {
   top?: string; bottom?: string; left?: string; right?: string;
   rotate: number; size: number | string; delay: number; opacity?: number;
 }) {
+  const reduce = useReducedMotion();
+  const widthValue = typeof size === "number" ? size * 0.6 : `calc(${size} * 0.6)`;
+
+  const driftAmplitude = 4 + ((delay * 7) % 5);
+  const driftDuration = 5 + ((delay * 3) % 2.5);
+
   return (
     <motion.div
-      initial={{ opacity: 0, rotate: rotate - 12 }}
-      animate={{ opacity, rotate }}
-      transition={{ duration: 1.2, ease: [0.2, 0.8, 0.2, 1], delay }}
+      initial={{ opacity: 0, rotate: rotate - 12, y: 0 }}
+      animate={
+        reduce
+          ? { opacity, rotate, y: 0 }
+          : { opacity, rotate, y: [0, -driftAmplitude, 0] }
+      }
+      transition={{
+        opacity: { duration: 1.2, ease: [0.2, 0.8, 0.2, 1], delay },
+        rotate: { duration: 1.2, ease: [0.2, 0.8, 0.2, 1], delay },
+        y: reduce
+          ? { duration: 0 }
+          : {
+              duration: driftDuration,
+              delay: delay + 1.2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            },
+      }}
       style={{
         position: "absolute",
         top, bottom, left, right,
-        width: size, height: size,
+        width: widthValue, height: size,
         pointerEvents: "none",
         zIndex: 1,
+        willChange: "transform",
       }}
     >
-      <svg viewBox="0 0 32 32" fill="none" stroke="var(--cobalt-300)" strokeWidth="1">
-        <path d="M16 2 L30 16 L16 30 L2 16 Z" />
-        <path d="M16 8 L24 16 L16 24 L8 16 Z" opacity="0.5" />
-      </svg>
+      <img
+        src="/logos/lcda-diamond-vertical.svg"
+        alt=""
+        style={{ width: "100%", height: "100%", display: "block" }}
+      />
     </motion.div>
   );
 }

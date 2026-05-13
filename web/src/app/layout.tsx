@@ -22,10 +22,6 @@ export const metadata: Metadata = {
   description:
     "Acroyoga en comunidad en Mérida. Diversión y seguridad garantizadas. No hace falta experiencia previa o venir en pareja.",
   metadataBase: new URL("https://lacasadelacroyoga.mx"),
-  icons: {
-    icon: "/icons/favicon.svg",
-    apple: "/icons/apple-touch-icon.png",
-  },
   openGraph: {
     title: "La Casa del Acroyoga · Mérida",
     description:

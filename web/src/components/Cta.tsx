@@ -57,7 +57,7 @@ export function Cta() {
           className="eyebrow"
           style={{ color: "var(--cobalt-300)", marginBottom: 24, display: "inline-block" }}
         >
-          ÚNETE A LA CASA
+          ÚNETE A LA CASA DEL ACROYOGA
         </span>
 
         <h2

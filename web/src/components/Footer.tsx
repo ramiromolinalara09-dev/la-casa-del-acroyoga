@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function Footer() {
   return (
     <footer
@@ -16,41 +18,15 @@ export function Footer() {
           alignItems: "center",
         }}
       >
-        <a href="#top" style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span style={{ display: "grid", placeItems: "center", width: 28, height: 28 }}>
-            <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="var(--cobalt-700)" strokeWidth="1.6">
-              <path d="M16 2 L30 16 L16 30 L2 16 Z" />
-              <path d="M16 8 L24 16 L16 24 L8 16 Z" opacity="0.55" />
-            </svg>
-          </span>
-          <span style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
-            <span
-              style={{
-                fontFamily: "var(--font-outfit)",
-                fontWeight: 500,
-                fontSize: 9,
-                letterSpacing: "var(--tracking-eyebrow)",
-                textTransform: "uppercase",
-                color: "var(--cobalt-700)",
-                marginBottom: 2,
-              }}
-            >
-              La Casa del
-            </span>
-            <span
-              style={{
-                fontFamily: "var(--font-outfit)",
-                fontWeight: 800,
-                fontSize: 16,
-                letterSpacing: "0.02em",
-                textTransform: "uppercase",
-                color: "var(--cobalt-700)",
-                lineHeight: 0.95,
-              }}
-            >
-              Acroyoga
-            </span>
-          </span>
+        <a href="#top" style={{ display: "flex", alignItems: "center" }} aria-label="La Casa del Acroyoga">
+          <Image
+            src="/logos/lcda-logo-diamond.svg"
+            alt="La Casa del Acroyoga"
+            width={960}
+            height={958}
+            unoptimized
+            style={{ height: 44, width: "auto", display: "block" }}
+          />
         </a>
 
         <p

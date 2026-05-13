@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 180" role="img" aria-label="La Casa del Acroyoga · romboide brand">
+  <defs>
+    <linearGradient id="brandDiamondGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5FC8E0"/>
+      <stop offset="35%" stop-color="#2C8FCE"/>
+      <stop offset="70%" stop-color="#1352A8"/>
+      <stop offset="100%" stop-color="#0D3D7A"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#brandDiamondGrad)" stroke-linejoin="miter">
+    <path d="M50 4 L96 90 L50 176 L4 90 Z" stroke-width="5"/>
+    <path d="M50 18 L84 90 L50 162 L16 90 Z" stroke-width="5"/>
+    <path d="M50 32 L72 90 L50 148 L28 90 Z" stroke-width="5"/>
+  </g>
+</svg>
