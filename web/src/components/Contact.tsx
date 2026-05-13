@@ -33,7 +33,7 @@ export function Contact() {
             display: "grid",
             gridTemplateColumns: "1fr 1.1fr",
             gap: "clamp(32px, 5vw, 80px)",
-            alignItems: "start",
+            alignItems: "stretch",
           }}
         >
           <Reveal className="lcda-contact-info">
@@ -135,17 +135,18 @@ export function Contact() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.15}>
+          <Reveal delay={0.15} className="lcda-contact-mapcol">
             <div
               className="lcda-contact-map"
               style={{
                 position: "relative",
                 width: "100%",
-                aspectRatio: "1 / 1",
                 borderRadius: "var(--radius-xl)",
                 overflow: "hidden",
                 border: "1px solid var(--hairline)",
                 background: "var(--cobalt-100)",
+                flex: 1,
+                minHeight: 360,
               }}
             >
               <iframe
@@ -178,12 +179,22 @@ export function Contact() {
       </div>
 
       <style>{`
+        .lcda-contact-mapcol {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
         @media (max-width: 880px) {
           .lcda-contact-grid {
             grid-template-columns: 1fr !important;
           }
+          .lcda-contact-mapcol {
+            height: auto !important;
+          }
           .lcda-contact-map {
             aspect-ratio: 4 / 3 !important;
+            flex: 0 0 auto !important;
+            min-height: 0 !important;
           }
           .lcda-contact-info {
             text-align: center;
