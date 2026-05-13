@@ -11,8 +11,8 @@ const navItems = [
   { href: "#beneficios", label: "Beneficios" },
   { href: "#galeria", label: "Galería" },
   { href: "#horarios", label: "Horarios" },
-  { href: "#preguntas", label: "FAQ" },
   { href: "#contacto", label: "Contacto" },
+  { href: "#preguntas", label: "FAQ" },
 ];
 
 export function Header() {
