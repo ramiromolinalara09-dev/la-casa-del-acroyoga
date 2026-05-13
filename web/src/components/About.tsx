@@ -22,7 +22,7 @@ export function About() {
       >
         <Reveal className="about-copy">
           <span className="eyebrow" style={{ marginBottom: 16, display: "inline-block" }}>
-            01 · ¿QUÉ ES ACROYOGA?
+            ¿QUÉ ES ACROYOGA?
           </span>
           <h2
             style={{
@@ -81,42 +81,24 @@ export function About() {
             style={{
               position: "relative",
               aspectRatio: "1 / 1",
-              maxWidth: 460,
+              maxWidth: 520,
               marginInline: "auto",
+              borderRadius: "var(--radius-xl)",
+              overflow: "hidden",
             }}
           >
-            <div
-              aria-hidden
+            <Image
+              src="/images/about-group.webp"
+              alt="Comunidad de La Casa del Acroyoga practicando juntos en Mérida"
+              width={1200}
+              height={1200}
               style={{
-                position: "absolute",
-                inset: 0,
-                background: "var(--cobalt-100)",
-                borderRadius: "var(--radius-xl)",
-                zIndex: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
               }}
             />
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                display: "grid",
-                placeItems: "center",
-                padding: "8%",
-                zIndex: 1,
-              }}
-            >
-              <Image
-                src="/images/illustration-community.png"
-                alt="Ilustración de cinco figuras en formación circular de acroyoga"
-                width={600}
-                height={600}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  display: "block",
-                }}
-              />
-            </div>
           </div>
         </Reveal>
       </div>

@@ -2,8 +2,8 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { AnimatedHero } from "./AnimatedHero";
-
-const WHATSAPP = "https://wa.me/529999909291?text=Hola%2C%20quiero%20reservar%20mi%20primera%20clase%20de%20acroyoga.";
+import { FEATHER_URL, buildWhatsappUrl } from "@/lib/links";
+import { WhatsAppIcon, ArrowRight } from "./icons";
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -115,11 +115,21 @@ export function Hero() {
           initial={{ opacity: 0, y: reduce ? 0 : 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1], delay: 0.9 }}
-          style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", marginBottom: 28 }}
+          style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap", marginBottom: 28 }}
         >
-          <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn btn-primary">
+          <a href={FEATHER_URL} target="_blank" rel="noreferrer" className="btn btn-primary">
             Reservar mi primera clase
             <ArrowRight />
+          </a>
+          <a
+            href={buildWhatsappUrl()}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-ghost"
+            style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
+          >
+            <WhatsAppIcon size={16} />
+            Contactar por WhatsApp
           </a>
         </motion.div>
 
@@ -170,14 +180,6 @@ function MetaItem({ label, value }: { label: string; value: string }) {
         {value}
       </span>
     </div>
-  );
-}
-
-function ArrowRight() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-      <path d="M1 7H13M13 7L8 2M13 7L8 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
   );
 }
 

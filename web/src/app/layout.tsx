@@ -28,6 +28,21 @@ export const metadata: Metadata = {
       "Diversión y seguridad garantizadas. No hace falta experiencia previa o venir en pareja.",
     locale: "es_MX",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 1200,
+        alt: "La Casa del Acroyoga · Mérida, Yucatán",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "La Casa del Acroyoga · Mérida",
+    description:
+      "Diversión y seguridad garantizadas. No hace falta experiencia previa o venir en pareja.",
+    images: ["/twitter-image.png"],
   },
 };
 

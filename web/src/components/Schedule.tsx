@@ -1,16 +1,15 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { buildWhatsappUrl } from "@/lib/links";
 
 const schedule = [
-  { dia: "Lunes",     hora: "8:00 — 10:00 PM",    cupo: 15 },
-  { dia: "Miércoles", hora: "8:00 — 10:00 PM",    cupo: 15 },
-  { dia: "Sábado",    hora: "10:00 AM — 12:00 PM", cupo: 8  },
+  { dia: "Lunes",     hora: "8:00 a 9:30 PM",    cupo: 15 },
+  { dia: "Miércoles", hora: "8:00 a 9:30 PM",    cupo: 15 },
+  { dia: "Sábado",    hora: "10:00 AM a 12:00 PM", cupo: 8  },
 ];
 
 const buildWa = (dia: string, hora: string) =>
-  `https://wa.me/529999909291?text=${encodeURIComponent(
-    `Hola, quiero reservar la clase del ${dia} ${hora}.`
-  )}`;
+  buildWhatsappUrl(`Hola, quiero reservar la clase del ${dia} ${hora}.`);
 
 export function Schedule() {
   return (
@@ -60,7 +59,7 @@ export function Schedule() {
               display: "inline-block",
             }}
           >
-            03 · HORARIOS
+            HORARIOS
           </span>
           <h2
             style={{

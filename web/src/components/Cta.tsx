@@ -2,8 +2,8 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
-
-const WHATSAPP = "https://wa.me/529999909291?text=Hola%2C%20quiero%20reservar%20mi%20primera%20clase%20de%20acroyoga.";
+import { FEATHER_URL, buildWhatsappUrl } from "@/lib/links";
+import { WhatsAppIcon, ArrowRight } from "./icons";
 
 export function Cta() {
   const reduce = useReducedMotion();
@@ -94,13 +94,13 @@ export function Cta() {
         <div
           style={{
             display: "flex",
-            gap: 16,
+            gap: 12,
             justifyContent: "center",
             flexWrap: "wrap",
           }}
         >
           <a
-            href={WHATSAPP}
+            href={FEATHER_URL}
             target="_blank"
             rel="noreferrer"
             className="btn"
@@ -114,16 +114,27 @@ export function Cta() {
             Reservar mi primera clase
             <ArrowRight />
           </a>
+          <a
+            href={buildWhatsappUrl()}
+            target="_blank"
+            rel="noreferrer"
+            className="btn"
+            style={{
+              background: "transparent",
+              color: "var(--cream-50)",
+              border: "1px solid rgba(250, 244, 233, 0.55)",
+              padding: "16px 28px",
+              fontSize: 16,
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 10,
+            }}
+          >
+            <WhatsAppIcon size={18} />
+            Contactar por WhatsApp
+          </a>
         </div>
       </motion.div>
     </section>
-  );
-}
-
-function ArrowRight() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-      <path d="M1 7H13M13 7L8 2M13 7L8 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
   );
 }

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { buildWhatsappUrl } from "@/lib/links";
 
 export function Footer() {
   return (
@@ -38,7 +39,12 @@ export function Footer() {
           }}
         >
           Mérida, Yucatán · WhatsApp{" "}
-          <a href="https://wa.me/529999909291" style={{ color: "var(--ink-700)" }}>
+          <a
+            href={buildWhatsappUrl()}
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: "var(--ink-700)", whiteSpace: "nowrap" }}
+          >
             999 990 9291
           </a>
         </p>

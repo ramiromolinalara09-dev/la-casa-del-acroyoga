@@ -4,7 +4,7 @@ const PILLARS = [
   { label: "Clases", Icon: ClasesIcon },
   { label: "Talleres", Icon: TalleresIcon },
   { label: "Retiros", Icon: RetirosIcon },
-  { label: "Encuentros", Icon: EncuentrosIcon },
+  { label: "Teacher trainings", Icon: EncuentrosIcon },
 ];
 
 export function Offerings() {
