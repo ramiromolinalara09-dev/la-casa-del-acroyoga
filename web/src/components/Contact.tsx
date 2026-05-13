@@ -51,7 +51,7 @@ export function Contact() {
                 lineHeight: "var(--lh-snug)",
                 letterSpacing: "var(--tracking-tight)",
                 color: "var(--ink-900)",
-                marginBottom: 24,
+                marginBottom: 40,
               }}
             >
               Te{" "}
@@ -65,7 +65,7 @@ export function Contact() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: 28,
+                gap: 44,
                 color: "var(--ink-700)",
               }}
             >
@@ -85,10 +85,10 @@ export function Contact() {
                     fontWeight: 500,
                     display: "inline-flex",
                     alignItems: "center",
-                    gap: 8,
+                    gap: 10,
                   }}
                 >
-                  <WhatsAppIcon size={14} />
+                  <WhatsAppIcon size={16} />
                   +52 999 990 9291
                 </a>
               </InfoRow>
@@ -99,9 +99,9 @@ export function Contact() {
                   style={{
                     display: "grid",
                     gridTemplateColumns: "auto 1fr",
-                    columnGap: 16,
-                    rowGap: 4,
-                    fontSize: "clamp(14px, 1vw, 15px)",
+                    columnGap: 32,
+                    rowGap: 10,
+                    fontSize: "clamp(15px, 1.05vw, 17px)",
                   }}
                 >
                   {HOURS.map((h) => (
@@ -202,17 +202,17 @@ function InfoRow({ label, children }: { label: string; children: React.ReactNode
       <p
         style={{
           fontFamily: "var(--font-outfit)",
-          fontSize: 11,
+          fontSize: 12,
           fontWeight: 500,
           letterSpacing: "var(--tracking-eyebrow)",
           textTransform: "uppercase",
           color: "var(--cobalt-700)",
-          marginBottom: 8,
+          marginBottom: 14,
         }}
       >
         {label}
       </p>
-      <div style={{ fontSize: "clamp(15px, 1.05vw, 17px)", lineHeight: 1.55 }}>
+      <div style={{ fontSize: "clamp(16px, 1.15vw, 19px)", lineHeight: 1.65 }}>
         {children}
       </div>
     </div>
