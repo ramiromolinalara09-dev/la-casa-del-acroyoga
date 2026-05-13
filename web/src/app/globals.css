@@ -109,10 +109,14 @@ img, svg { display: block; max-width: 100%; }
   }
   .schedule-row {
     grid-template-columns: 1fr !important;
-    gap: 4px !important;
+    gap: 8px !important;
   }
   .schedule-row > span:last-child {
     text-align: left !important;
+  }
+  .schedule-row > a {
+    justify-self: start !important;
+    margin-top: 8px !important;
   }
 }
 
@@ -127,6 +131,9 @@ img, svg { display: block; max-width: 100%; }
   .about-illustration,
   .primera-illustration {
     max-width: 260px !important;
+  }
+  .lcda-welcome-name {
+    display: block;
   }
 }
 

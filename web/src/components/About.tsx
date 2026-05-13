@@ -16,7 +16,7 @@ export function About() {
         style={{
           display: "grid",
           gridTemplateColumns: "1.1fr 1fr",
-          gap: "var(--space-9)",
+          gap: "clamp(32px, 5vw, 96px)",
           alignItems: "center",
         }}
       >
@@ -55,18 +55,8 @@ export function About() {
             (sostiene), alguien hace de{" "}
             <strong style={{ color: "var(--ink-900)", fontWeight: 600 }}>flyer</strong>{" "}
             (vuela), y siempre hay un{" "}
-            <strong
-              style={{
-                color: "var(--ink-900)",
-                fontWeight: 600,
-                borderBottom: "1px dotted var(--cobalt-300)",
-                cursor: "help",
-              }}
-              title="Cuidador encargado de brindar seguridad y apoyo durante la práctica"
-            >
-              spotter
-            </strong>{" "}
-            cerca para cuidar el espacio.
+            <strong style={{ color: "var(--ink-900)", fontWeight: 600 }}>spotter</strong>{" "}
+            (cuida) cerca para acompañar el espacio.
           </p>
           <p
             style={{
