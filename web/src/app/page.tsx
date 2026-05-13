@@ -23,8 +23,8 @@ export default function Home() {
         <FirstClass />
         <Gallery />
         <Schedule />
-        <FAQ />
         <Contact />
+        <FAQ />
         <Cta />
       </main>
       <Footer />

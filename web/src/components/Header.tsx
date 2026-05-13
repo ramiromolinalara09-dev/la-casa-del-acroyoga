@@ -11,7 +11,7 @@ const navItems = [
   { href: "#beneficios", label: "Beneficios" },
   { href: "#galeria", label: "Galería" },
   { href: "#horarios", label: "Horarios" },
-  { href: "#preguntas", label: "Preguntas" },
+  { href: "#preguntas", label: "FAQ" },
   { href: "#contacto", label: "Contacto" },
 ];
 
