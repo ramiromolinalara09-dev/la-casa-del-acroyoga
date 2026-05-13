@@ -54,19 +54,24 @@ export function Contact() {
                 marginBottom: 40,
               }}
             >
-              Te{" "}
+              Así nos{" "}
               <span className="font-italic-accent" style={{ color: "var(--cobalt-700)" }}>
-                esperamos
+                encuentras
               </span>
               .
             </h2>
 
             <div
+              className="lcda-contact-card"
               style={{
                 display: "flex",
                 flexDirection: "column",
                 gap: 44,
                 color: "var(--ink-700)",
+                background: "var(--cobalt-100)",
+                border: "1px solid var(--cobalt-300)",
+                borderRadius: "var(--radius-xl)",
+                padding: "clamp(28px, 3vw, 40px)",
               }}
             >
               <InfoRow label="Dirección">
