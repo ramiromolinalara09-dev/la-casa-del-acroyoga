@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: "La Casa del Acroyoga · Mérida, Yucatán",
   description:
     "Acroyoga en comunidad en Mérida. Diversión y seguridad garantizadas. No hace falta experiencia previa o venir en pareja.",
-  metadataBase: new URL("https://lacasadelacroyoga.mx"),
+  metadataBase: new URL("https://lacasadelacroyoga.com"),
   openGraph: {
     title: "La Casa del Acroyoga · Mérida",
     description:
