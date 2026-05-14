@@ -61,7 +61,7 @@ export function Header() {
           onClick={() => setMenuOpen(false)}
         >
           <Image
-            src="/logos/lcda-logo-diamond.svg"
+            src="/logos/lcda-logo-diamond.png"
             alt="La Casa del Acroyoga"
             width={960}
             height={958}

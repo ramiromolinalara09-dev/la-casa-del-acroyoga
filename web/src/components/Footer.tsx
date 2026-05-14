@@ -22,7 +22,7 @@ export function Footer() {
       >
         <a href="#top" style={{ display: "flex", alignItems: "center" }} aria-label="La Casa del Acroyoga">
           <Image
-            src="/logos/lcda-logo-diamond.svg"
+            src="/logos/lcda-logo-diamond.png"
             alt="La Casa del Acroyoga"
             width={960}
             height={958}
