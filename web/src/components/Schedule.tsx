@@ -3,8 +3,8 @@ import { Reveal } from "./Reveal";
 import { buildWhatsappUrl } from "@/lib/links";
 
 const schedule = [
-  { dia: "Lunes",     hora: "8:00 a 9:30 PM",    cupo: 15 },
-  { dia: "Miércoles", hora: "8:00 a 9:30 PM",    cupo: 15 },
+  { dia: "Lunes",     hora: "8:00 a 10:00 PM",   cupo: 15 },
+  { dia: "Miércoles", hora: "8:00 a 10:00 PM",   cupo: 15 },
   { dia: "Sábado",    hora: "10:00 AM a 12:00 PM", cupo: 8  },
 ];
 
@@ -165,8 +165,7 @@ export function Schedule() {
             }}
           >
             Si vienes por primera vez, llega 10 minutos antes. Trae ropa cómoda
-            que no se trepe (leggings o shorts ajustados funcionan mejor que
-            sueltos).
+            (leggings o shorts ajustados funcionan mejor que sueltos).
           </p>
         </Reveal>
       </div>

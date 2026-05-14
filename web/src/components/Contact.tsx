@@ -7,9 +7,9 @@ const MAPS_EMBED =
   "https://maps.google.com/maps?q=21.0097473,-89.6206213&hl=es&z=16&output=embed";
 
 const HOURS = [
-  { dia: "Lunes",     hora: "8:00 a 9:30 PM" },
+  { dia: "Lunes",     hora: "8:00 a 10:00 PM" },
   { dia: "Martes",    hora: "Cerrado" },
-  { dia: "Miércoles", hora: "8:00 a 9:30 PM" },
+  { dia: "Miércoles", hora: "8:00 a 10:00 PM" },
   { dia: "Jueves",    hora: "Cerrado" },
   { dia: "Viernes",   hora: "Cerrado" },
   { dia: "Sábado",    hora: "10:00 AM a 12:00 PM" },
