@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { buildWhatsappUrl } from "@/lib/links";
 
 export function Footer() {
@@ -36,17 +37,31 @@ export function Footer() {
             color: "var(--ink-500)",
             textAlign: "center",
             margin: 0,
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: 12,
+            alignItems: "center",
           }}
         >
-          Mérida, Yucatán · WhatsApp{" "}
-          <a
-            href={buildWhatsappUrl()}
-            target="_blank"
-            rel="noreferrer"
-            style={{ color: "var(--ink-700)", whiteSpace: "nowrap" }}
+          <span>
+            Mérida, Yucatán · WhatsApp{" "}
+            <a
+              href={buildWhatsappUrl()}
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "var(--ink-700)", whiteSpace: "nowrap" }}
+            >
+              999 990 9291
+            </a>
+          </span>
+          <span style={{ color: "var(--hairline-strong)" }}>·</span>
+          <Link
+            href="/aviso-de-privacidad"
+            style={{ color: "var(--ink-500)", textDecoration: "underline", textUnderlineOffset: 2 }}
           >
-            999 990 9291
-          </a>
+            Aviso de privacidad
+          </Link>
         </p>
 
         <p
